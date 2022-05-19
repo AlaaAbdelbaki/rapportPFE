@@ -1,5 +1,21 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{import}
+\usepackage{geometry}
+\usepackage[export]{adjustbox}
+\usepackage{multicol}
+
+
+\graphicspath{{./images/}}
+\geometry{margin=2.5cm}
+\setmainfont{Times New Roman}
+
 \begin{document}
-First document. This is a simple example, with no
-extra parameters or packages included.
+\input{chapters/page_de_garde.tex}
+% Title page
+\newpage
+Hellp page two
 \end{document}
