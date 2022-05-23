@@ -7,15 +7,61 @@
 \usepackage{geometry}
 \usepackage[export]{adjustbox}
 \usepackage{multicol}
+\usepackage{setspace}
+\usepackage{lipsum}  
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{lettrine}
+\usepackage{float}
+\usepackage{caption}
 
+
+
+
+
+\title{Rapport Project fin d'études SPN Cars mobile App}
+\author{Alaa Abdelbaki}
+\date{2022}
 
 \graphicspath{{./images/}}
-\geometry{margin=2.5cm}
 \setmainfont{Times New Roman}
+\onehalfspacing
+\renewcommand*\contentsname{Table de matières}
+\renewcommand*\listfigurename{Liste de figures}
+
+
+
+
 
 \begin{document}
-\input{chapters/page_de_garde.tex}
 % Title page
+\input{chapters/page_de_garde.tex}
+% Dédicaces
+\raggedright
 \newpage
-Hellp page two
+\input{chapters/dedicace.tex}
+% Remerciements
+\newpage
+\input{chapters/remerciements.tex}
+% Table of contents
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+% Introduction
+\input{chapters/introduction.tex}
+\newpage
+% Cadre du projet
+\input{chapters/cadre_du_projet.tex}
+% Spécifications des besoins
+\newpage
+\input{chapters/besoins.tex}
+% Conception
+\newpage
+\input{chapters/conception.tex}
+% Réalisation de l'application
+\newpage
+\input{chapters/realisation.tex}
+
 \end{document}
