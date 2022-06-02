@@ -1,0 +1,102 @@
+@startuml Authentification
+"Logique de l'application" -> "Logique de l'application" ++ : Vérification de connexion
+"Logique de l'application" -> "Logique de l'application" : Recherche du JWT sauvegardé dans le stockage de l'application.
+alt JWT touvé
+"Logique de l'application" -> "Serveur back-end" ++ : Envoi du JWT.
+"Serveur back-end" -> "Serveur back-end" : Vérification de la validité du JWT
+alt JWT valide : 
+"Serveur back-end" -> "Logique de l'application" : JWT Validé
+"Logique de l'application" -> "Logique de l'application" : Redirection vers la page d'accueil
+else JWT non valide
+"Serveur back-end" -> "Logique de l'application" --: JWT non Validé
+"Logique de l'application" -> "Logique de l'application" : Redirection vers la page de connexion
+end
+else JWT non trouvé
+"Logique de l'application" -> "Logique de l'application" -- : Redirection vers la page de connexion
+alt Utiliser "Sign in with Google"
+Utilisateur -> IHM : Appui sur le bouton "Google".
+Utilisateur -> IHM : Choisir un compte Google.
+IHM -> Google ++ : Demande des détails du compte choisi
+Google -> IHM --: Envoi des détails du compte
+else "Sign in with Apple"
+Utilisateur -> IHM : Appui sur le bouton "Apple".
+Utilisateur -> IHM : Choisir un compte Apple.
+IHM -> Apple ++ : Demande des détails du compte choisi
+Apple -> IHM --: Envoi des détails du compte
+else Utiliser Email et mot de passe.
+Utilisateur -> IHM ++: Saisie des identifiants.
+IHM -> IHM : Validation des champs.
+alt Champs non valides
+IHM -> Utilisateur : Envoyer un message d'erreur.
+end
+end
+IHM -> "Serveur back-end" ++ : Envoi des identifiants.
+"Serveur back-end" -> "Serveur back-end" : Vérification des identifiants.
+alt Identifiants valides
+"Serveur back-end"->IHM : Envoi du JWT.
+"Logique de l'application" -> "Logique de l'application" : Sauvegarde du JWT.
+IHM -> IHM : Transition vers la page d'accueil.
+else Identifiants invalides
+"Serveur back-end"->IHM : Envoi d'un message d'erruer.
+IHM -> Utilisateur : Affichage d'un message d'erreur.
+end 
+end
+@enduml
+@startuml rent a car
+Utilisateur -> IHM ++: Saisie point de départ. 
+IHM -> "Google Places API" ++: Envoyer le texte saisi.
+"Google Places API" -> IHM --: Retourner la liste des adresses.
+Utilisateur -> IHM : Choisir une adresse.
+IHM -> Utilisateur : Afficher l'adresse sélectionnée sur Google Maps.
+Utilisateur -> IHM : Choisir la date et l'heure de début de location.
+Utilisateur -> IHM : Choisir la date et l'heure de fin de location.
+Utilisateur -> IHM : Appuier sur le bouton "Trouver une voiture"
+IHM -> IHM : Vérifier la validité de champs 
+alt Champs valides
+IHM -> Utilisateur : Afficher la page des voitures disponibles.
+else Champs non valides
+IHM -> Utilisateur : Afficher un message d'erreur
+end 
+@enduml
+@startuml transfer
+Utilisateur -> IHM ++: Saisie point de départ. 
+IHM -> "Google Places API" ++: Envoyer le texte saisi.
+"Google Places API" -> IHM --: Retourner la liste des adresses.
+Utilisateur -> IHM : Choisir une adresse.
+IHM -> Utilisateur : Afficher l'adresse sélectionnée \nsur Google Maps.
+Utilisateur -> IHM: Saisie destination. 
+IHM -> "Google Places API" ++: Envoyer le texte saisi.
+"Google Places API" -> IHM --: Retourner la liste des adresses.
+Utilisateur -> IHM : Choisir une adresse.
+IHM -> Utilisateur : Afficher l'adresse sélectionnée \nsur Google Maps.
+IHM -> "Google directions API" ++: Envoyer les coordonnées des \nadresses de départ et d'arrivée.
+"Google directions API"->IHM --: Retourner une liste des meilleures \nroutes à suivre avec des estimations \nde temps et de durée.
+IHM -> Utilisateur : Afficher la route avec une \nestimation de temps la plus courte \nsur Google Maps.
+Utilisateur -> IHM : Choisir la date et l'heure de transfert.
+Utilisateur -> IHM : Appuyer sur le bouton "Trouver une voiture"
+IHM -> IHM : Vérifier la validité de champs 
+alt Champs valides
+IHM -> Utilisateur : Afficher la page des voitures disponibles.
+else Champs non valides
+IHM -> Utilisateur : Afficher un message d'erreur
+end 
+@enduml
+@startuml choisir voiture
+opt Choisir des filtres
+Utilisateur -> "Page: \nAvailable cars" ++: Choisir des filtres
+"Page: \nAvailable cars" -> Utilisateur : Mettre à jour la liste des voitures affichées.
+end
+Utilisateur -> "Page: \nAvailable cars" : Appuyer sur la carte de la voiture choisie
+"Page détails voiture" -> Utilisateur : Afficher les détails de la voiture choisie.
+Utilisateur -> "Page détails voiture" ++: Appuyer sur le bouton "Book car"  
+alt Choisir l'option "Book now"
+"Page détails voiture" -> "Page détails voiture" : Vérification des documents légales du client.
+alt Utilisateur a une identité et permis valides
+"Page détails voiture" -> "Page détails voiture" : Redirection vers la page de paiement.
+else Utilisiateur n'a pas d'identité ou de permis valides
+"Page détails voiture" -> Utilisateur : Afficher un formulaire pour ajouter \nune pièce d'identitée et le permis\nde conduite.
+end
+else Choisir l'option "Add to cart"
+"Page détails voiture" -> "Page détails voiture" : Ajouter la voiture dans le panier du client.
+end
+@enduml
