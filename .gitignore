@@ -22,7 +22,7 @@
 *.out
 *.fdb_latexmk
 *.xml
-*.pdf
+Rapport.pdf
 *.fls
 *.bcf
 *.pyg
