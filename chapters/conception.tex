@@ -4,15 +4,12 @@
 \subsection{Diagrammes UML}
 \subsubsection{Spécification des acteurs}
 L'application SPN-Cars aura trois acteurs :
-\phantomsection
 \paragraph{L'utilisateur régulier}\mbox{} \\
 L'utilisateur régulier sera celui qui créera les demandes de transfert, c'est le point focal de l'application.
-\phantomsection
 \paragraph{Le chauffeur}\mbox{} \\
 C'est celui qui sera responsable du transfert des clients et livraison de voitures en cas de location de voiture sans chauffeur.
-\phantomsection
 \paragraph{L'admin}\mbox{} \\
-L'admin surveillera toutes les opérations en cours, trouvera des solutions s'il y a un problème chez un client et il aura l'authorité de prendre les décisions nécessaires pour assurer les services offerts aux clients.
+L'admin surveillera toutes les opérations en cours, trouvera des solutions s'il y a un problème chez un client et il aura l'autorité de prendre les décisions nécessaires pour assurer les services offerts aux clients.
 \subsubsection{Diagramme de cas d'utilisation}
 \begin{figure}[H]
     \centering
@@ -29,56 +26,6 @@ L'admin surveillera toutes les opérations en cours, trouvera des solutions s'il
     \vspace{1cm}
     \caption{Diagramme de classe}
     \label{fig:class_diag}
-\end{figure}
-\subsubsection{Diagramme de séquences}
-Les diagrammes de séquences présenteront le fonctionnement de l'application dès l'authentification jusqu'au fonctionnalités les plus complexes.
-\paragraph{L'authentification}\mbox{} \\
-L'authentification est la première étape dans le cycle de vie de l'application, lors du premier démarrage de l'application il est nécessaire de vérifier si l'utilisateur à déja connecté sur l'application.\\
-\noindent Cette étape est nécessaire pour réduire le nombre de connexion et faciliter l'expérience des utilisateurs.
-\vspace{1cm}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = \textwidth]{uml/Authentification.png}
-    \vspace{1cm}
-    \caption{Diagramme de séquences: Authentification}
-    \label{fig:seq_auth}
-\end{figure}
-\paragraph{Demander un service}\mbox{} \\
-Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les paramètres suivants :
-\begin{itemize}
-    \item Le type de service demandé (Location / Transfert / Excursion / Long Ride).
-    \item L'adresse de départ.
-    \item L'heure de départ.
-    \item L'adresse d'arrivée (Pas toujours disponible selon le type de service).
-    \item L'heure d'arrivée (Pas toujours disponible selon le type de service).
-    \item La durée du service demandé (Pas toujours disponible selon le type de service).
-\end{itemize}
-\vspace{1cm}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = \textwidth]{uml/rent a car.png}
-    \vspace{1cm}
-    \caption{Diagramme de séquences: Demander une location.}
-    \label{fig:seq_location}
-\end{figure}
-\vspace{1cm}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = \textwidth]{uml/transfert.png}
-    \vspace{1cm}
-    \caption{Diagramme de séquences: Demander un transfert.}
-    \label{fig:seq_transfert}
-\end{figure}
-\paragraph{Affichage des voitures disponibles} \mbox{}\\
-Après sélection des informations nécessaires par l'utilisateur, une recherche des voitures qui répondent aux critères de recherche choisis. Une fois une liste de voitures est prête, les voitures seront affichés. L'utilisateur peut appuyer sur une voiture pour découvrir ses caractéristiques et choisir ensuite de la louer ou continuer sa recherche.
-Le diagramme suivant explique la procédure de la sélection de voitures.
-\vspace{1cm}
-\begin{figure}
-    \centering
-    \includegraphics[width = \textwidth]{uml/choisir voiture.png}
-    \vspace{1cm}
-    \caption{Diagramme de séquences : Choisir une voiture}
-    \label{fig:seq_car_select}
 \end{figure}
 \subsection{UI/UX Design}
 Avant de passer au développement de l'application, il faut créer d'abord les prototypes des interfaces utilisateur. \\
@@ -160,9 +107,9 @@ Avant de passer au développement de l'application, il faut créer d'abord les p
 \end{figure}
 
 \subsection{Technologies et logiciels utilisés}
-Comme cette application sera une application mobile, il est nécessaire que la performance soit la priorité lors du développement. C'est porquoi on a choisi les technologies suivantes pour offrir une application rapide, performante, facile à utiliser.\\
+Comme cette application sera une application mobile, il est nécessaire que la performance soit la priorité lors du développement. C'est pourquoi on a choisi les technologies suivantes pour offrir une application rapide, performante, facile à utiliser.\\
 \noindent Ses différentes technologies sont classifiés dans trois domaines principalement : Conception des interfaces graphiques, développement de l'application, et développement du back-end de l'application.\\
-\paragraph{Adobe Xd}\mbox{} \\
+\subsubsection{Adobe Xd}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
@@ -174,7 +121,7 @@ Comme cette application sera une application mobile, il est nécessaire que la p
 \textit{\textbf{Adobe Xd}} est un outil de conception et modélisation des interfaces utilisateur des applications web et mobiles, développé par Adobe Inc.\\
 \noindent Grâce aux outils fournis par Adobe Xd, la conception, l'amélioration et la rectification des interfaces graphiques et l'expérience de l'utilisateur de l'application sera plus facile, plus rapide et plus efficace.
 \noindent Dans le cadre de ce projet, Adobe Xd a été utilisé pour la création des prototypes des interfaces graphiques, qui seront, par la suite, construits en application mobile à l'aide de Flutter.
-\paragraph{Flutter}\mbox{} \\
+\subsubsection{Flutter}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
@@ -185,8 +132,8 @@ Comme cette application sera une application mobile, il est nécessaire que la p
 \end{figure}
 \textit{\textbf{Flutter}} est un kit de développement (SDK) open-source créé par Google et publié en 2017.\\
 \noindent Flutter permet de créer des application mobiles (Android / iOS), web et meême desktop (Windows / Linux / MacOS), avec une seule base de code en Dart, un langage de programmation développé aussi par Google. \\
-\noindent Flutter présente plusieurs avantages qui permettent de créer des applications mobiles performantes et réduit aussi le coût et le temps de développement nécessaires, grâce au langage de programmation utilisé \textit{\textbf{Dart}} qui est très facile à maitriser et qui offre plusieurs avantages, dont le plus important la fonctionnalité de <<\textit{\textbf{Hot Reload}}>> qui permet de recharger l'application et afficher les changements sur l'écran sans passer par la recompilation du code source.
-\paragraph{Express JS}\mbox{} \\
+\noindent Flutter présente plusieurs avantages qui permettent de créer des applications mobiles performantes et réduit aussi le coût et le temps de développement nécessaires, grâce au langage de programmation utilisé \textit{\textbf{Dart}} qui est très facile à maîtriser et qui offre plusieurs avantages, dont le plus important la fonctionnalité de <<\textit{\textbf{Hot Reload}}>> qui permet de recharger l'application et afficher les changements sur l'écran sans passer par la recompilation du code source.
+\subsubsection{Express JS}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
@@ -195,9 +142,10 @@ Comme cette application sera une application mobile, il est nécessaire que la p
     \caption{Logo Express}
     \label{fig:express_logo}
 \end{figure}
-\textit{\textbf{Express JS}} est un framework back-end gratuit et open-source pour NodeJS.\\
-\noindent Créé par TJ Holowaychuk, la première version publique d'Express JS a été introduite au public en 2010.
-\paragraph{MongoDB} \mbox{} \\
+\textit{\textbf{Express JS}} est un framework back-end gratuit et open-source pour NodeJS. Créé par TJ Holowaychuk, la première version publique d'Express JS a été introduite au public en 2010.\\
+Express JS est un framework minimaliste, très léger pour garantir une performance optimale et une exécution rapide. Ce framework est aussi très flexible, même s'il fournit que quelques fonctionnalités, grâce à \textit{\textbf{NPM}}, le gestionnaire de packets de NodeJS, il peut être complété par plusieurs librairies disponibles.\\
+\noindent Grâce à son minimalisme et facilité d'implémentation, ExpressJS est utilisé par plusieurs par nombreuses sociétés dans le monde, pour développer tout type d'applications, parmi ses sociétés il y a des géants de technologies tels que \textit{\textbf{IBM}}, \textit{\textbf{Uber}}, et plusieurs autres.
+\subsubsection{MongoDB}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
@@ -206,7 +154,12 @@ Comme cette application sera une application mobile, il est nécessaire que la p
     \caption{Logo MongoDB}
     \label{fig:mongo_logo}
 \end{figure}
-\paragraph{Firebase} \mbox{} \\
+\textit{\textbf{MongoDB}}, est un système de gestion de base de données NoSQL, orientée documents. Une base de données NoSQL est utilisée pour le stockage de volumes massifs de données, elle se distingue des des bases de données relationnelles par sa flexibilité et ses performances.\\
+\noindent Le système MongoDB est développé par la société qui porte le même nom en 2007. Cette entreprise travaillait sur un système de cloud computing à données largement réparties.\\
+\noindent Il est depuis devenu l'un des systèmes de gestion de base de données les plus utilisées, notamment pour des sites web très populaires tels que : \textit{\textbf{SourseForge.net}}, \textit{\textbf{eBay}} et \textit{\textbf{The New York Times}}.\\
+\noindent Contrairement à une base de données relationnelle SQL traditionnelle, MongoDB ne repose pas sur des tableaux et des colonnes. Les données sont stockées sous forme de collections et de documents.
+Les documents sont des paires de valeurs / clés servant d'unité de données de base. Les collections quant à elles contiennent des ensembles de documents et de fonctions. Elles sont l'équivalent des tableaux dans les bases de données relationnelles classiques.
+\subsubsection{Firebase}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
@@ -215,7 +168,16 @@ Comme cette application sera une application mobile, il est nécessaire que la p
     \caption{Logo Firebase}
     \label{fig:firebase_logo}
 \end{figure}
-\paragraph{Git} \mbox{} \\
+\textit{\textbf{Firebase}} est une plateforme créée en 2011, puis acquise et développée par Google en 2014. Firebase facilite la création de back-end à la fois scalable et performant.\\
+\noindent L'objectif de firebase est d'offrir aux professionnels et aux particuliers un moyen d'éviter l'engagement dans un processus complexe de création et de maintenance d'une architecture serveur.\\
+\noindent Firebase offre des API intuitives regroupées dans un SDK unique. Ces API permettent de gagner du temps et de réduire le nombre d'intégrations qu'on doit gérer dans l'application.\\
+\noindent Firebase offre plusieurs services que tout le monde peut utiliser gratuitement grâce à sa politique <<pay as you go>> qui nécessite le paiement de ses services seulement si l'utilisation des ressources dépasse le quota du plan gratuit offert. Les services de Firebase les plus utilisés sont :
+\begin{itemize}
+    \item \textbf{Realtime Database}: Une base de données NoSQL, bénéficiant d'un hébergement cloud et permettant le stockage et la synchronisation de données des untilisateurs.
+    \item \textbf{Fireabse Authentification}: Un SDK prêt et facile à exploiter qui permet de d'authentifier les utilisateurs en offrant plusieurs méthodes d'authentification tels que Google, Apple, Facebook, Email et mot de passe, numéro de téléphone et plusieurs d'autres méthodes pour assurer l'authentification de l'utilisateur.
+    \item \textbf{Firebase Cloud Messaging}: Permet de connecter plusieurs périphériques au serveur dans les meilleures conditions (fiabilité et économie de batterie). Ce service permet de recevoir et envoyer des notification sur les différentes plateformes (Web / iOS / Android). Avec Firebase Cloud Messaging, il est possible aussi d'assurer un service de messagerie instantanée entre les utilisateurs.
+\end{itemize}
+\subsubsection{Git}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
@@ -224,4 +186,9 @@ Comme cette application sera une application mobile, il est nécessaire que la p
     \caption{Logo Git}
     \label{fig:git_logo}
 \end{figure}
+\textit{\textbf{Git}} est un système de contrôle de version open-source créé en 2005 par \textit{\textbf{Linus Torvalds}}, le créateur du noyau du système d'exploitation Linux.\\
+\noindent Un logiciel de versioning, ou logiciel de gestion de version est un logiciel qui permet de conserver un historique des modifications effectuées sur un projet afin de pouvoir rapidement identifier les changements effectuées et de revenir à une ancienne version en cas de problème.\\
+\noindent Git permet de gérer les ajouts et changements apportés au code source de manière tracée. Ainsi, si une erreur est commise, les développeurs peuvent revenir en arrière et comparer les versions antérieures du code, ce qui leur permet de corriger l'erreur tout en minimisant les perturbations pour tous les membres de l'équipe.
+
+
 

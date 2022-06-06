@@ -15,7 +15,11 @@
 \usepackage{float}
 \usepackage{caption}
 \usepackage{graphicx}
+\usepackage{pdfpages}
 
+
+
+\special{pdf:minorversion 7} %set minorversion
 
 
 
@@ -36,7 +40,10 @@
 
 \begin{document}
 % Title page
-\input{chapters/page_de_garde.tex}
+% \input{chapters/page_de_garde.tex}
+\includepdf[pages={1}]{./chapters/garde.pdf}
+\newpage
+\input{chapters/empty.tex}
 % Dédicaces
 \raggedright
 \newpage
@@ -64,5 +71,7 @@
 % Réalisation de l'application
 \newpage
 \input{chapters/realisation.tex}
+\newpage
+\includepdf[pages={1}]{./chapters/last.pdf}
 
 \end{document}
