@@ -1,44 +1,47 @@
 @startuml Authentification
-"Logique de l'application" -> "Logique de l'application" ++ : Vérification de connexion
-"Logique de l'application" -> "Logique de l'application" : Recherche du JWT sauvegardé dans le stockage de l'application.
+
+actor Utilisateur as user
+participant "Logique de l'application" as logic
+participant IHM as IHM
+database "Serveurs\nGoogle\Apple" as server
+database "Serveur\nback-end" as backend
+
+
+logic -> logic ++ : Vérification de connexion
+logic -> logic : Recherche du JWT sauvegardé dans le stockage de l'application.
 alt JWT touvé
-"Logique de l'application" -> "Serveur back-end" ++ : Envoi du JWT.
-"Serveur back-end" -> "Serveur back-end" : Vérification de la validité du JWT
+logic -> backend ++ : Envoi du JWT.
+backend -> backend : Vérification de la validité du JWT
 alt JWT valide : 
-"Serveur back-end" -> "Logique de l'application" : JWT Validé
-"Logique de l'application" -> "Logique de l'application" : Redirection vers la page d'accueil
+backend -> logic : JWT Validé
+logic -> logic : Redirection vers la page d'accueil
 else JWT non valide
-"Serveur back-end" -> "Logique de l'application" --: JWT non Validé
-"Logique de l'application" -> "Logique de l'application" : Redirection vers la page de connexion
+backend -> logic --: JWT non Validé
+logic -> logic : Redirection vers la page de connexion
 end
 else JWT non trouvé
-"Logique de l'application" -> "Logique de l'application" -- : Redirection vers la page de connexion
-alt Utiliser "Sign in with Google"
-Utilisateur -> IHM : Appui sur le bouton "Google".
-Utilisateur -> IHM : Choisir un compte Google.
-IHM -> Google ++ : Demande des détails du compte choisi
-Google -> IHM --: Envoi des détails du compte
-else "Sign in with Apple"
-Utilisateur -> IHM : Appui sur le bouton "Apple".
-Utilisateur -> IHM : Choisir un compte Apple.
-IHM -> Apple ++ : Demande des détails du compte choisi
-Apple -> IHM --: Envoi des détails du compte
+logic -> logic -- : Redirection vers la page de connexion
+alt Utiliser "Sign in with Google / Apple"
+user -> IHM : Appui sur le bouton "Google" ou "Apple".
+user -> IHM : Choisir un compte.
+IHM -> server ++ : Demande des détails du compte choisi
+server -> IHM --: Envoi des détails du compte
 else Utiliser Email et mot de passe.
-Utilisateur -> IHM ++: Saisie des identifiants.
+user -> IHM ++: Saisie des identifiants.
 IHM -> IHM : Validation des champs.
 alt Champs non valides
-IHM -> Utilisateur : Envoyer un message d'erreur.
+IHM -> user : Envoyer un message d'erreur.
 end
 end
-IHM -> "Serveur back-end" ++ : Envoi des identifiants.
-"Serveur back-end" -> "Serveur back-end" : Vérification des identifiants.
+IHM -> backend ++ : Envoi des identifiants.
+backend -> backend : Vérification des identifiants.
 alt Identifiants valides
-"Serveur back-end"->IHM : Envoi du JWT.
-"Logique de l'application" -> "Logique de l'application" : Sauvegarde du JWT.
+backend->IHM : Envoi du JWT.
+logic -> logic : Sauvegarde du JWT.
 IHM -> IHM : Transition vers la page d'accueil.
 else Identifiants invalides
-"Serveur back-end"->IHM : Envoi d'un message d'erruer.
-IHM -> Utilisateur : Affichage d'un message d'erreur.
+backend->IHM : Envoi d'un message d'erruer.
+IHM -> user : Affichage d'un message d'erreur.
 end 
 end
 @enduml
@@ -99,4 +102,137 @@ end
 else Choisir l'option "Add to cart"
 "Page détails voiture" -> "Page détails voiture" : Ajouter la voiture dans le panier du client.
 end
+@enduml
+@startuml home
+
+actor Utilisateur as user
+participant IHM as ihm
+database "Base de données" as database
+
+activate ihm 
+
+ihm --> user : Afficher le nom et prénom\nde l'utilisateur.
+ihm -> database ++ : Demander les services\nen cours de l'utilisateur.
+database -> database : Recherche des services\nen cours de l'utilisateur.
+database --> ihm --: Retourner liste des services\nen cours de l'utilisateur
+alt Liste des services vide
+ihm --> user : Afficher les services en cours.
+else Liste des services non vide
+ihm --> user : Afficher deux options :\n- Louer une voiture\n- Demander un Transfert
+end
+
+deactivate ihm 
+@enduml
+
+@startuml register
+
+actor Utilisateur as user
+participant IHM as ihm
+database "Serveur back-end" as database
+
+activate ihm
+
+alt Choisir email et mot de passe
+user -> ihm : Saisie email et mot de passe.
+ihm -> database ++: Envoi des données saisies
+database -> database : Recherche du compte\nutilisant l'email saisi.
+alt Compte non existant
+database --> ihm : Envoi réponse positive.
+ihm -> ihm : Redirection vers\n"Terminer la création du compte"
+else Compte existant
+database --> ihm : Envoi réponse négative.
+ihm --> user : Affichage message d'erreur.
+end
+
+else Choisir Google 
+user -> ihm : Appui sur le bouton "Sign in with Google"
+ihm -> "Google API" ++: Récupération des données de l'utilisateur. 
+"Google API" --> ihm -- : Réponse avec les informations de l'utilisateur. 
+ihm -> database : Envoi des données au serveur 
+database -> database : Recherche du compte\nutilisant l'email utilisé.
+alt Compte non existant
+database --> ihm : Envoi réponse positive.
+ihm -> ihm : Redirection vers\n"Terminer la création du compte"
+else Compte existant
+database --> ihm : Envoi réponse négative.
+ihm --> user : Affichage message d'erreur.
+end
+
+else Choisir Apple
+
+user -> ihm : Appui sur le bouton "Sign in with Apple"
+ihm -> "Apple API" ++: Récupération des données de l'utilisateur. 
+"Apple API" --> ihm -- : Réponse avec les informations de l'utilisateur. 
+ihm -> database : Envoi des données au serveur 
+database -> database : Recherche du compte\nutilisant l'email utilisé.
+alt Compte non existant
+database --> ihm : Envoi réponse positive.
+ihm -> ihm : Redirection vers\n"Terminer la création du compte"
+else Compte existant
+database --> ihm : Envoi réponse négative.
+ihm --> user : Affichage message d'erreur.
+end
+
+end
+
+deactivate database
+deactivate ihm
+
+@enduml
+
+@startuml register_email
+
+actor Utilisateur as user
+participant IHM as ihm 
+database "Base de données" as database
+
+user -> ihm : Saisie email et mot de passe.
+ihm -> database ++: Envoi des données saisies
+database -> database : Recherche du compte\nutilisant l'email saisi.
+alt Compte non existant
+database --> ihm --: Envoi réponse positive.
+ihm --> user : Redirection vers\n"Terminer la création du compte".
+user -> ihm : Saisie des informations nécessaires.
+ihm -> ihm : Valider les champs saisis.
+alt Champs valides
+ihm -> database : Envoi des informations de l'utilisateur.
+database -> database : Création du compte utilisateur.
+database --> user : Envoi e-mail de confirmation. 
+database --> ihm : Envoi réponse positive.
+ihm --> user : Redirection vers la page de connexion.
+else Champs non valides
+ihm --> user : Affichage message d'erreur.
+end
+else Compte existant
+database --> ihm : Envoi réponse négative.
+ihm --> user : Affichage message d'erreur.
+end
+
+@enduml
+
+@startuml apple_google
+
+actor Utilisateur as user
+participant IHM as ihm 
+database "Serveurs\nApple / Google" as server
+database "Base de données" as database
+
+
+user->ihm ++: Appui sur le bouton\n"Login with Google"
+ihm --> user : Afficher un menu de sélection de compte.
+user -> ihm : Choisir un compte.
+ihm -> server ++: Demande des informations\ndu compte choisi. 
+server --> ihm --: Retourner les informations\ndu compte choisi.
+ihm -> database ++ : Vérification de l'existance du compte.
+alt Compte non existant
+database --> ihm : Autoriser la connexion
+ihm --> user : Redirection vers la page de finalisation.
+user -> ihm : Saisie des informations manquantes.
+ihm -> ihm : Validation des champs.
+else Compte existant
+database --> ihm --:  Envoi erreur.
+ihm --> user --: Affichage message d'erreur.
+end
+
+
 @enduml

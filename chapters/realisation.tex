@@ -4,19 +4,75 @@
 \subsection{Création de compte}
 La première étape pour utiliser l'application SPN-Cars est de créer un compte. Ce compte permettra aux utilisateurs de bénéficier de tous les services offerts par l'application.\\
 \noindent Pour créer un compte l'utilisateur a la possibilité de choisir trois méthodes : Créer un compte avec son émail et choisir un mot de passe, ou créer un compte tout simplement en utilisant l'option de création de compte avec son compte Google ou Apple.
+\subsubsection{Création de compte avec email et mot de passe}
+C'est la méthode la plus basique qui existait depuis toujours. Pour créer un compte, l'utilisateur doit tout d'abord entrer son adresse email, un mot de passe, et une confirmation de cette mot de passe. Lors de l'appui sur le bouton de "Créer un compte", l'application envoie une requête vers le serveur back-end afin de vérifier l'existance d'un compte d'utilisateur utilisant la même adresse e-mail. Après une recherche effectuée sur les utilisateurs, le serveur back-end envoie une réponse positive s'il n'a trouvé aucun compte d'utilisateur utilisant l'adresse e-mail entrée par l'utilisateur, sinon une réponse négative sera envoyée. Selon la réponse retournée par le serveur l'application redérigera l'utilisateur vers une page pour compléter l'étape de création de compte si la réponse du serveur est positive, ou affichera un message d'erreur avec l'erreur adéquate si la réponse du serveur est négative.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{uml/register_email.png}
+    \vspace{1cm}
+    \caption{Diagramme de séquence : Création de compte avec E-mail et mot de passe.}
+    \label{fig:seq_register_email}
+\end{figure}
+\subsubsection{Création de compte avec Google ou Apple}
+Cette methode est la plus facile et la plus rapide pour créer un compte ou s'authentifier. Avec un simple appui sur le bouton adéquat, une requête envoyée aux services de Google ou Apple pour récupérer les données du compte choisi. Ses données sont :
+\begin{itemize}
+    \item Un identifiant unique du compte Google ou Apple.
+    \item L'adresse email du compte.
+    \item Le nom et prénom utilisés avec le compte.
+    \item La photo de profil utilisée avec ce compte.
+\end{itemize}
+Ses informations seront nécessaires pour passer la première étape de création de compte et avec eux l'utilisateur gagnera un peu de temps lors de la création de son compte.
+\vspace{1cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{uml/apple_google.png}
+    \vspace{1cm}
+    \caption{Diagramme de séquence : Création de compte avec Un compte Google / Apple.}
+    \label{fig:seq_register_apple_google}
+\end{figure}
 \subsection{Authentification}
 L'authentification est la première étape dans le cycle de vie de l'application, lors du premier démarrage de l'application il est nécessaire de vérifier si l'utilisateur est déjà connecté à l'application. Grâce à cette étape on peut identifier l'utilisateur, et limiter les requêtes envoyées au serveur back-end.\\
-\noindent Pour s'authentifier l'utilisateur peut choisir trois méthodes différentes : Email et mot de passe, avec son compte Google, ou avec son compte Apple.
+\noindent Pour s'authentifier l'utilisateur peut choisir trois méthodes différentes : Email et mot de passe, avec son compte Google, ou avec son compte Apple.\\
+La validation des champs est une étape nécessaire pour s'assurer que l'utilisateur n'envoie que des valeurs correctes vers les API de connexion, ce qui permet d'éviter les erreurs inattendues.
+\vspace{1cm}
+\begin{center}
+    \begin{multicols}{2}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/login_page.png}
+            \vspace{1cm}
+            \caption{Page de Login.}
+            \label{fig:app_login}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/login_page_validation.png}
+            \vspace{1cm}
+            \caption{Validation des champs de Login.}
+            \label{fig:app_login_validation}
+        \end{figure}
+    \end{multicols}
+\end{center}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{uml/Authentification.png}
     \vspace{1cm}
-    \caption{Diagramme de séquences: Authentification}
+    \caption{Diagramme de séquences: Authentification.}
     \label{fig:seq_auth}
 \end{figure}
 \subsection{Page d'accueil}
-\subsection{Gestion de profile}
+Une fois l'utilisateur est a réussi à s'authentifier, la page d'accueil s'affiche. Cette page diffère d'un utilisateur à un autre selon les services demandés par l'utilisateurs: Si l'utilisateur a un service actif le moment de sa connexion, la liste de voitures louées avec les détails de chaque service actif demandé, et s'il n'a pas de services actif le moment de sa connexion, deux boutons seront affichés : <<Rent a car>> pour louer une voiture sans chauffeur et <<Request a transfer>> pour demander un chauffeur avec une voiture.
+\vspace{1cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{uml/home.png}
+    \vspace{1cm}
+    \caption{Diagramme de séquences : Page d'accueil.}
+    \label{fig:seq_home}
+\end{figure}
+\vspace{1cm}
+\subsection{Gestion de profil}
 \subsection{Demander un service}
 Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les paramètres suivants :
 \begin{itemize}
