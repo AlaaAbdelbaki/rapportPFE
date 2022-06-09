@@ -53,6 +53,16 @@ La validation des champs est une étape nécessaire pour s'assurer que l'utilisa
         \end{figure}
     \end{multicols}
 \end{center}
+
+\begin{center}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/login_page_google.png}
+        \vspace{1cm}
+        \caption{Login avec Google.}
+        \label{fig:app_login_google}
+    \end{figure}
+\end{center}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
@@ -99,6 +109,40 @@ Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les pa
     \caption{Diagramme de séquences: Demander un transfert.}
     \label{fig:seq_transfert}
 \end{figure}
+\vspace{1cm}
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/transfer_form.png}
+        \captionsetup{justification=centering}
+        \caption{Formulaire de demande de transfert.}
+        \label{fig:app_transfer}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/current_location.png}
+        \captionsetup{justification=centering}
+        \caption{Utiliser le bouton "Localiser" pour choisir la position actuelle.}
+        \label{fig:app_transfer_current_pos}
+    \end{figure}
+\end{multicols}
+\newpage
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/suggestions.png}
+        \captionsetup{justification=centering}
+        \caption{Rechercher un emplacement à l'aide de Google Places.}
+        \label{fig:app_transfer_suggestions}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/directions.png}
+        \captionsetup{justification=centering}
+        \caption{Afficher la meilleure route entre le point de départ et le point d'arrivée.}
+        \label{fig:app_transfer_directions}
+    \end{figure}
+\end{multicols}
 \subsection{Affichage des voitures disponibles}
 Après sélection des informations nécessaires par l'utilisateur, une recherche des voitures qui répondent aux critères de recherche choisis. Une fois une liste de voitures est prête, les voitures seront affichés. L'utilisateur peut appuyer sur une voiture pour découvrir ses caractéristiques et choisir ensuite de la louer ou continuer sa recherche.
 Le diagramme suivant explique la procédure de la sélection de voitures.
@@ -110,6 +154,24 @@ Le diagramme suivant explique la procédure de la sélection de voitures.
     \caption{Diagramme de séquences : Choisir une voiture}
     \label{fig:seq_car_select}
 \end{figure}
+\newpage
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/available_cars.png}
+        \captionsetup{justification=centering}
+        \caption{Liste des voitures disponibles selon le point de départ sélectionné.}
+        \label{fig:app_available_cars}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/available_cars_empty.png}
+        \captionsetup{justification=centering}
+        \caption{Affichage si aucune voiture n'est disponible.}
+        \label{fig:app_available_cars_empty}
+    \end{figure}
+\end{multicols}
+\subsection{Signature numérique de contrat de location}
 \subsection{Paiement}
 \subsection{Localiser une voiture}
 \subsection{Messagerie instantanée}

@@ -46,9 +46,13 @@ end
 end
 @enduml
 @startuml rent a car
+
+actor Utilisateur as Utilisateur
+participant IHM as IHM
+database "Google Places API" as places
 Utilisateur -> IHM ++: Saisie point de départ. 
-IHM -> "Google Places API" ++: Envoyer le texte saisi.
-"Google Places API" -> IHM --: Retourner la liste des adresses.
+IHM -> places ++: Envoyer le texte saisi.
+places -> IHM --: Retourner la liste des adresses.
 Utilisateur -> IHM : Choisir une adresse.
 IHM -> Utilisateur : Afficher l'adresse sélectionnée sur Google Maps.
 Utilisateur -> IHM : Choisir la date et l'heure de début de location.
@@ -62,18 +66,25 @@ IHM -> Utilisateur : Afficher un message d'erreur
 end 
 @enduml
 @startuml transfer
+
+actor Utilisateur as Utilisateur
+participant IHM as IHM
+database "Google Places API" as places
+database "Google Directions API" as directions
+
+
 Utilisateur -> IHM ++: Saisie point de départ. 
-IHM -> "Google Places API" ++: Envoyer le texte saisi.
-"Google Places API" -> IHM --: Retourner la liste des adresses.
+IHM -> places ++: Envoyer le texte saisi.
+places -> IHM --: Retourner la liste des adresses.
 Utilisateur -> IHM : Choisir une adresse.
 IHM -> Utilisateur : Afficher l'adresse sélectionnée \nsur Google Maps.
 Utilisateur -> IHM: Saisie destination. 
-IHM -> "Google Places API" ++: Envoyer le texte saisi.
-"Google Places API" -> IHM --: Retourner la liste des adresses.
+IHM -> places ++: Envoyer le texte saisi.
+places -> IHM --: Retourner la liste des adresses.
 Utilisateur -> IHM : Choisir une adresse.
 IHM -> Utilisateur : Afficher l'adresse sélectionnée \nsur Google Maps.
-IHM -> "Google directions API" ++: Envoyer les coordonnées des \nadresses de départ et d'arrivée.
-"Google directions API"->IHM --: Retourner une liste des meilleures \nroutes à suivre avec des estimations \nde temps et de durée.
+IHM -> directions ++: Envoyer les coordonnées des \nadresses de départ et d'arrivée.
+directions->IHM --: Retourner une liste des meilleures \nroutes à suivre avec des estimations \nde temps et de durée.
 IHM -> Utilisateur : Afficher la route avec une \nestimation de temps la plus courte \nsur Google Maps.
 Utilisateur -> IHM : Choisir la date et l'heure de transfert.
 Utilisateur -> IHM : Appuyer sur le bouton "Trouver une voiture"
@@ -85,6 +96,9 @@ IHM -> Utilisateur : Afficher un message d'erreur
 end 
 @enduml
 @startuml choisir voiture
+
+Actor Utilisateur as Utilisateur
+
 opt Choisir des filtres
 Utilisateur -> "Page: \nAvailable cars" ++: Choisir des filtres
 "Page: \nAvailable cars" -> Utilisateur : Mettre à jour la liste des voitures affichées.
