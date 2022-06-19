@@ -97,25 +97,20 @@ end
 @enduml
 @startuml choisir voiture
 
-Actor Utilisateur as Utilisateur
+actor Utilisateur as user
+participant IHM as ihm
+database "Back-end" as backend
 
-opt Choisir des filtres
-Utilisateur -> "Page: \nAvailable cars" ++: Choisir des filtres
-"Page: \nAvailable cars" -> Utilisateur : Mettre à jour la liste des voitures affichées.
-end
-Utilisateur -> "Page: \nAvailable cars" : Appuyer sur la carte de la voiture choisie
-"Page détails voiture" -> Utilisateur : Afficher les détails de la voiture choisie.
-Utilisateur -> "Page détails voiture" ++: Appuyer sur le bouton "Book car"  
-alt Choisir l'option "Book now"
-"Page détails voiture" -> "Page détails voiture" : Vérification des documents légales du client.
-alt Utilisateur a une identité et permis valides
-"Page détails voiture" -> "Page détails voiture" : Redirection vers la page de paiement.
-else Utilisiateur n'a pas d'identité ou de permis valides
-"Page détails voiture" -> Utilisateur : Afficher un formulaire pour ajouter \nune pièce d'identitée et le permis\nde conduite.
-end
-else Choisir l'option "Add to cart"
-"Page détails voiture" -> "Page détails voiture" : Ajouter la voiture dans le panier du client.
-end
+activate ihm
+
+ihm -> backend ++: Demander la liste\ndes voitures disponibles\navec les paramètres\nde la recherche.
+backend -> backend : Trouver des voitures disponibles\ndans les dates sélectionnées\net dans le préimètre de la\nposition du client.
+backend --> ihm --: Retourner la liste\ndes voitures disponibles.
+ihm --> user : Afficher la liste\ndes voitures disponibles.
+user -> ihm : Appui sur la voiture sélectionnée.
+ihm --> user : Redirection vers la page\nde détails de la voiture.
+deactivate ihm
+
 @enduml
 @startuml home
 
@@ -248,5 +243,71 @@ database --> ihm --:  Envoi erreur.
 ihm --> user --: Affichage message d'erreur.
 end
 
+
+@enduml
+
+
+@startuml docusign
+
+actor Utilisateur as user
+participant IHM as ihm
+database "Back-end" as database
+database "DocuSign API" as docusign
+
+activate ihm
+user -> ihm : Appui sui "Book now".
+ihm -> database ++: Envoi des détails de la réservation.
+database -> database : Créer une réservation.
+database -> database : Créer le contrat numérique.
+database -> docusign ++: Envoyer le contrat.
+docusign --> user : Envoyer le contrat\nà signer par mail.
+docusign --> database --: Envoyer l'identifiant du contrat.
+database -> database : Mettre à jour la réservation\navec l'identifiant du contrat.
+database --> ihm --: Envoyer les détails de la réservation.
+ihm -> user : Redériger vers la page de\nvérification de signature.
+user -> docusign ++: Signer le document.
+user -> ihm : Appuier sur "Verify Signature".
+ihm -> database ++: Demander l'état de la réservation.
+database -> docusign : Demander l'état du contrat.
+docusign --> database --:Envoyer l'état du contrat.
+database --> ihm --:Envoyer l'état du contrat.
+alt Etat du contrat "sent"
+    ihm --> user : Afficher un message d'erreur.
+else Etat du contrat "completed"
+    ihm --> user : Redériger vers la page de paiement.    
+end
+
+deactivate ihm
+
+
+@enduml
+
+
+
+@startuml payment
+
+actor Utilisateur as user
+participant IHM as ihm
+database "Back-end" as database
+database "Google Pay / Apple Pay" as pay
+
+activate ihm
+
+user -> ihm : Appuier sur le bouton de paiement.
+ihm --> user : Ouverture de l'application de paiement.
+user -> pay ++: Paiement du service choisi.
+alt Paiement accepté
+    pay --> ihm : Envoi détails\nde paiement.
+    ihm -> database ++: Envoyer les nouveaux\ndétails de réservation.
+    database -> database : Mettre à jour l'état\nde réservation.
+    database --> ihm --: Envoi du résultat\nde mise à jour.
+    ihm --> user : Redirection vers la page d'accueil.
+else Paiement non accepté
+    pay --> ihm --: Envoi détails paiement.
+    ihm --> user : Affichage message d'erreur.
+end
+
+
+deactivate ihm
 
 @enduml

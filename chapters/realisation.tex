@@ -5,7 +5,27 @@
 La première étape pour utiliser l'application SPN-Cars est de créer un compte. Ce compte permettra aux utilisateurs de bénéficier de tous les services offerts par l'application.\\
 \noindent Pour créer un compte l'utilisateur a la possibilité de choisir trois méthodes : Créer un compte avec son émail et choisir un mot de passe, ou créer un compte tout simplement en utilisant l'option de création de compte avec son compte Google ou Apple.
 \subsubsection{Création de compte avec email et mot de passe}
-C'est la méthode la plus basique qui existait depuis toujours. Pour créer un compte, l'utilisateur doit tout d'abord entrer son adresse email, un mot de passe, et une confirmation de cette mot de passe. Lors de l'appui sur le bouton de "Créer un compte", l'application envoie une requête vers le serveur back-end afin de vérifier l'existance d'un compte d'utilisateur utilisant la même adresse e-mail. Après une recherche effectuée sur les utilisateurs, le serveur back-end envoie une réponse positive s'il n'a trouvé aucun compte d'utilisateur utilisant l'adresse e-mail entrée par l'utilisateur, sinon une réponse négative sera envoyée. Selon la réponse retournée par le serveur l'application redérigera l'utilisateur vers une page pour compléter l'étape de création de compte si la réponse du serveur est positive, ou affichera un message d'erreur avec l'erreur adéquate si la réponse du serveur est négative.
+C'est la méthode la plus basique qui existait depuis toujours. Pour créer un compte, l'utilisateur doit tout d'abord entrer son adresse email, un mot de passe, et une confirmation de cette mot de passe. Lors de l'appui sur le bouton de <<Créer un compte>>, l'application envoie une requête vers le serveur back-end afin de vérifier l'existance d'un compte d'utilisateur utilisant la même adresse e-mail. Après une recherche effectuée sur les utilisateurs, le serveur back-end envoie une réponse positive s'il n'a trouvé aucun compte d'utilisateur utilisant l'adresse e-mail entrée par l'utilisateur, sinon une réponse négative sera envoyée. Selon la réponse retournée par le serveur l'application redérigera l'utilisateur vers une page pour compléter l'étape de création de compte si la réponse du serveur est positive, ou affichera un message d'erreur avec l'erreur adéquate si la réponse du serveur est négative.
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \begin{center}
+            \centering
+            \includegraphics[height = 0.4 \textheight]{ui_screenshots/app_screenshots/register.png}
+            \captionsetup{justification=centering}
+            \caption{Formulare de création de compte : 1ère étape.}
+            \label{fig:app_register}
+        \end{center}
+    \end{figure}
+    \begin{figure}[H]
+        \begin{center}
+            \centering
+            \includegraphics[height = 0.4 \textheight]{ui_screenshots/app_screenshots/finsih_register.png}
+            \captionsetup{justification=centering}
+            \caption{Formulare de création de compte : 2ème étape.}
+            \label{fig:app_finish_register}
+        \end{center}
+    \end{figure}
+\end{multicols}
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{uml/register_email.png}
@@ -13,6 +33,7 @@ C'est la méthode la plus basique qui existait depuis toujours. Pour créer un c
     \caption{Diagramme de séquence : Création de compte avec E-mail et mot de passe.}
     \label{fig:seq_register_email}
 \end{figure}
+
 \subsubsection{Création de compte avec Google ou Apple}
 Cette methode est la plus facile et la plus rapide pour créer un compte ou s'authentifier. Avec un simple appui sur le bouton adéquat, une requête envoyée aux services de Google ou Apple pour récupérer les données du compte choisi. Ses données sont :
 \begin{itemize}
@@ -110,6 +131,7 @@ Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les pa
     \label{fig:seq_transfert}
 \end{figure}
 \vspace{1cm}
+\newpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
@@ -122,7 +144,7 @@ Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les pa
         \centering
         \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/current_location.png}
         \captionsetup{justification=centering}
-        \caption{Utiliser le bouton "Localiser" pour choisir la position actuelle.}
+        \caption{Utiliser le bouton <<Localiser>> pour choisir la position actuelle.}
         \label{fig:app_transfer_current_pos}
     \end{figure}
 \end{multicols}
@@ -172,6 +194,78 @@ Le diagramme suivant explique la procédure de la sélection de voitures.
     \end{figure}
 \end{multicols}
 \subsection{Signature numérique de contrat de location}
+Pour le cas de location de voitures, un contrat doit être signé entre le client et la société. Pour s'assurer de la signature du contrat, on a opté pour la solution de signature numérique à l'aide du service offert par DocuSign, qui se spécialise dans le domaine de la signature électronique et la gestion des transactions numériques pour faciliter les échanges et les validations électroniques des contrats et de documents.\\
+\noindent Pour créer une réservation de location de voitures, il suffit d'appuier sur le bouton de <<Book now>> dans la page de détails de la voiture choisie, et une réservation sera créée avec tous les détails : La position GPS, la date de récupération et retour de voiture et les informations de contact du client. Une fois ses informations sont enregistrées, un email contenant le contrat sera envoyé au client pour le signer, et l'identifiant de ce contrat sera enrigistré avec les informations de la réservation.\\
+\noindent Dans l'application le client est redérigé vers la page de vérification de signature où il doit appuier sur le bouton de vérification de l'état de contrat. Pour signer ce contrat, il suffit d'ouvrir le document envoyé à l'addresse email du client, le signer, et retourner vers l'application. Lors de l'appui sur le bouton <<Verify Signature>>, une requête sera envoyée au back-end qui contactera les APIs de <<DocuSign>> pour vérifier l'état de signature du contrat à l'aide de l'identifiant du contrat fournis lors de la création de la réservation. Si l'état de contrat est <<sent>>, le contrat n'est pas encore signé, et un message d'erreur sera affiché à l'utilisateur. Sinon si létat du contrat est <<completed>>, les contrat est, donc, signé et l'utilisateur est redérigé vers la page de paiement.
+\vspace{1cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{uml/docusign.png}
+    \captionsetup{justification=centering}
+    \caption{Diagramme de séquences : Envoi du contrat de location.}
+    \label{fig:seq_location_contract}
+\end{figure}
+\vspace{1cm}
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/create_reservation.png}
+        \captionsetup{justification=centering}
+        \caption{Création de réservation.}
+        \label{fig:create_res}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/verify_sig.png}
+        \captionsetup{justification=centering}
+        \caption{Page de vérification de signature}
+        \label{fig:verify_sig}
+    \end{figure}
+\end{multicols}
+\vspace{1cm}
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/not_signed.png}
+        \captionsetup{justification=centering}
+        \caption{Vérification de signature avec un document non signé.}
+        \label{fig:not_signed}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/contract_email.png}
+        \captionsetup{justification=centering}
+        \caption{Email contenant les documents à signer.}
+        \label{fig:sign_documents}
+    \end{figure}
+\end{multicols}
+\vspace{1cm}
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/signature.png}
+        \captionsetup{justification=centering}
+        \caption{Choix de signature.}
+        \label{fig:signature_select}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/signature_end.png}
+        \captionsetup{justification=centering}
+        \caption{confirmation de signature.}
+        \label{fig:confirm_sig}
+    \end{figure}
+\end{multicols}
 \subsection{Paiement}
+Pour le paiement des services offert par SPN Cars, l'utilisateur utilisera <<Apple Pay>> s'il utilise un iPhone ou <<Google Pay>> s'il utilise un smartphone Android, qui sont, grâce à leurs haute disponibilitées, le choix optimal pour effectuer des paiements en ligne avec son propre smarthphone.\\
+Pour effectuer un paiement avec l'application SPN Cars, il suffit de signer le contrat de location dans le cas de location de voitures, ou sélectionner une voiture dans le cas de demande de transfert, après la page de paiement avec le bouton de paiement selon le type de smartphone sera affiché. Lors de l'appui, L'interface des applications de paiement adéquates seront affichées pour continuer la transaction. Une fois terminé, l'utilisateur sera redérigé vers la page d'accueil si le paiement est effectué, ou un message d'erreur sera affiché si non.
+\vspace{1cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{uml/payment.png}
+    \captionsetup{justification=centering}
+    \caption{Diagramme de séquences: Paiement des services.}
+    \label{fig:seq_payment}
+\end{figure}
 \subsection{Localiser une voiture}
 \subsection{Messagerie instantanée}
