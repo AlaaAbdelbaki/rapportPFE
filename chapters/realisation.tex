@@ -33,7 +33,6 @@ C'est la méthode la plus basique qui existait depuis toujours. Pour créer un c
     \caption{Diagramme de séquence : Création de compte avec E-mail et mot de passe.}
     \label{fig:seq_register_email}
 \end{figure}
-
 \subsubsection{Création de compte avec Google ou Apple}
 Cette methode est la plus facile et la plus rapide pour créer un compte ou s'authentifier. Avec un simple appui sur le bouton adéquat, une requête envoyée aux services de Google ou Apple pour récupérer les données du compte choisi. Ses données sont :
 \begin{itemize}
@@ -104,6 +103,18 @@ Une fois l'utilisateur est a réussi à s'authentifier, la page d'accueil s'affi
 \end{figure}
 \vspace{1cm}
 \subsection{Gestion de profil}
+Chaque utilisateur possède un profil personnel, ce profil affichera les informations nécessaires pour faciliter la communication entre utilisateurs dans le futur (Ex: Contact entre chauffuer et client).\\
+\noindent La page de profil, dans l'application SPN-Cars, est une page très simple qui contient les informations de base de l'utilisateur :
+\begin{itemize}
+    \item La photo de profil.
+    \item Le nom.
+    \item Le prénom
+    \item L'addresse E-mail.
+    \item Le numéro de téléphone.
+    \item La date de naissance.
+\end{itemize}
+De toutes ses données seuls le nom, prénom, photo de profil et numéro de téléphone seront accessible aux chauffeurs pour assurer une communication avec les clients.\\
+\noindent L'utilisateur peut modifier tous ses informations personnelles tout simplement en modifiant les champs contenant l'information à changer, et pour la photo de profile i'l suffit d'appuier sur la photo pour la remplacer par une autre, soit prendre une nouvelle photo en utilisant l'appareil photo du smartphone, ou en choisissant une photo existante depuis la gallerie. Une fois l'image est choisie, l'utilisateur sera redérigé vers une page pour recadrer l'image et choisir la zone qui sera affichée dans la page de profile, une fois l'image est recadrée, elle sera compressée pour réduire sa taille et faciliter son transfert vers le serveur distant.
 \subsection{Demander un service}
 Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les paramètres suivants :
 \begin{itemize}
