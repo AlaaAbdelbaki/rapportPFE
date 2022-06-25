@@ -1,12 +1,14 @@
 \thispagestyle{plain}
 \newgeometry{margin=2.5cm}
 \section{Réalisation de l'application}
+\textit{Dans ce chapitre, on décrirera toutes les fonctionnalités de l'application, leurs fonctionnement, les différents scénarii d'exécution avec des captures d'écran de chaque interface d'utilisateur avec un diagramme de séquences qui décrit en détail la fonctionnalité mentionnée.}
 \justifying
 \subsection{Création de compte}
 La première étape pour utiliser l'application SPN-Cars est de créer un compte. Ce compte permettra aux utilisateurs de bénéficier de tous les services offerts par l'application.\\
 \noindent Pour créer un compte l'utilisateur a la possibilité de choisir trois méthodes : Créer un compte avec son émail et choisir un mot de passe, ou créer un compte tout simplement en utilisant l'option de création de compte avec son compte Google ou Apple.
 \subsubsection{Création de compte avec email et mot de passe}
 C'est la méthode la plus basique qui existait depuis toujours. Pour créer un compte, l'utilisateur doit tout d'abord entrer son adresse email, un mot de passe, et une confirmation de cette mot de passe. Lors de l'appui sur le bouton de <<Créer un compte>>, l'application envoie une requête vers le serveur back-end afin de vérifier l'existance d'un compte d'utilisateur utilisant la même adresse e-mail. Après une recherche effectuée sur les utilisateurs, le serveur back-end envoie une réponse positive s'il n'a trouvé aucun compte d'utilisateur utilisant l'adresse e-mail entrée par l'utilisateur, sinon une réponse négative sera envoyée. Selon la réponse retournée par le serveur l'application redérigera l'utilisateur vers une page pour compléter l'étape de création de compte si la réponse du serveur est positive, ou affichera un message d'erreur avec l'erreur adéquate si la réponse du serveur est négative.
+\newpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \begin{center}
@@ -60,14 +62,14 @@ La validation des champs est une étape nécessaire pour s'assurer que l'utilisa
     \begin{multicols}{2}
         \begin{figure}[H]
             \centering
-            \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/login_page.png}
+            \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/login_page.png}
             \vspace{1cm}
             \caption{Page de Login.}
             \label{fig:app_login}
         \end{figure}
         \begin{figure}[H]
             \centering
-            \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/login_page_validation.png}
+            \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/login_page_validation.png}
             \vspace{1cm}
             \caption{Validation des champs de Login.}
             \label{fig:app_login_validation}
@@ -78,7 +80,7 @@ La validation des champs est une étape nécessaire pour s'assurer que l'utilisa
 \begin{center}
     \begin{figure}[H]
         \centering
-        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/login_page_google.png}
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/login_page_google.png}
         \vspace{1cm}
         \caption{Login avec Google.}
         \label{fig:app_login_google}
@@ -147,31 +149,30 @@ Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les pa
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
-        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/transfer_form.png}
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/transfer_form.png}
         \captionsetup{justification=centering}
         \caption{Formulaire de demande de transfert.}
         \label{fig:app_transfer}
     \end{figure}
     \begin{figure}[H]
         \centering
-        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/current_location.png}
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/current_location.png}
         \captionsetup{justification=centering}
         \caption{Utiliser le bouton <<Localiser>> pour choisir la position actuelle.}
         \label{fig:app_transfer_current_pos}
     \end{figure}
 \end{multicols}
-\newpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
-        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/suggestions.png}
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/suggestions.png}
         \captionsetup{justification=centering}
         \caption{Rechercher un emplacement à l'aide de Google Places.}
         \label{fig:app_transfer_suggestions}
     \end{figure}
     \begin{figure}[H]
         \centering
-        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/directions.png}
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/directions.png}
         \captionsetup{justification=centering}
         \caption{Afficher la meilleure route entre le point de départ et le point d'arrivée.}
         \label{fig:app_transfer_directions}
@@ -192,14 +193,14 @@ Le diagramme suivant explique la procédure de la sélection de voitures.
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
-        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/available_cars.png}
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/available_cars.png}
         \captionsetup{justification=centering}
         \caption{Liste des voitures disponibles selon le point de départ sélectionné.}
         \label{fig:app_available_cars}
     \end{figure}
     \begin{figure}[H]
         \centering
-        \includegraphics[height = 0.5\textheight]{ui_screenshots/app_screenshots/available_cars_empty.png}
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/available_cars_empty.png}
         \captionsetup{justification=centering}
         \caption{Affichage si aucune voiture n'est disponible.}
         \label{fig:app_available_cars_empty}
@@ -217,7 +218,7 @@ Pour le cas de location de voitures, un contrat doit être signé entre le clien
     \caption{Diagramme de séquences : Envoi du contrat de location.}
     \label{fig:seq_location_contract}
 \end{figure}
-\vspace{1cm}
+\newpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
@@ -299,3 +300,29 @@ Pour effectuer un paiement avec l'application SPN Cars, il suffit de signer le c
 \subsection{Localiser une voiture}
 \subsection{Messagerie instantanée}
 \subsection{Documentation des API}
+La documentation des APIs est une étape nécessaire dans le développement de n'importe quelle application. Une documentation accessible et facilement exploitable est une condition préalable au développement des API. Il est important d'avoir une documentation toujours à jour quand le code/les fonctionnalités de l'API évoluent.\\
+\noindent Et puisque le modèle de développement chez SPN est centré sur le travail collaboratif, il est très important d'avoir une documentation claire et et facile à exploiter des APIs.
+
+On va prendre un exemple de documentation de l'API de l'entitée <<Voiture>> où on a suivi les spécification de Open Api pour créer la documentation de ses APIs.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height= 0.8\textheight]{openapi.png}
+    \captionsetup{justification=centering}
+    \caption{Schéma de documentation des API.}
+    \label{fig:api_doc_schema}
+\end{figure}
+\newpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[height= 0.8\textheight,width=\textwidth]{api.png}
+    \captionsetup{justification=centering}
+    \caption{Documentation des API.}
+    \label{fig:api_doc}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height= 0.8\textheight,width=\textwidth]{add_car.png}
+    \captionsetup{justification=centering}
+    \caption{Détails API ajout voiture.}
+    \label{fig:api_doc_detail}
+\end{figure}
