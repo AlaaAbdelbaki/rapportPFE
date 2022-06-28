@@ -1,33 +1,38 @@
-\newgeometry{margin=2.5cm}
-\section{Conception du projet}
-\textit{Afin de créer une application respectant les besoins définis dans le cahier de charges, il faut d'abord passer par l'étape de conception. Cette étape permettra de décortiquer le cahier de charges et définir les acteurs, les cas d'utilisation, et finalement les différentes classes qui définiront les différents attributs de chaque entité qui interagit avec l'application.}
-\subsection{Diagrammes UML}
-\subsubsection{Spécification des acteurs}
+\chapter{Conception du projet}
+\minitoc
+\cleardoublepage
+\section*{Introduction}
+Afin de créer une application respectant les besoins définis dans le cahier de charges, il faut d'abord passer par l'étape de conception. Cette étape permettra de décortiquer le cahier de charges et définir les acteurs, les cas d'utilisation, et finalement les différentes classes qui définiront les différents attributs de chaque entité qui interagit avec l'application.
+\section{Diagrammes UML}
+\subsection{Spécification des acteurs}
 L'application SPN-Cars aura trois acteurs :
-\paragraph{L'utilisateur régulier}\mbox{} \\
-L'utilisateur régulier sera celui qui créera les demandes de transfert, c'est le point focal de l'application.
-\paragraph{Le chauffeur}\mbox{} \\
-C'est celui qui sera responsable du transfert des clients et livraison de voitures en cas de location de voiture sans chauffeur.
-\paragraph{L'admin}\mbox{} \\
-L'admin surveillera toutes les opérations en cours, trouvera des solutions s'il y a un problème chez un client et il aura l'autorité de prendre les décisions nécessaires pour assurer les services offerts aux clients.
-\subsubsection{Diagramme de cas d'utilisation}
-\begin{figure}[H]
+\begin{itemize}
+    \item \textbf{L'utilisateur régulier} sera celui qui créera les demandes de transfert, c'est le point focal de l'application.
+    \item \textbf{Le chauffeur} sera responsable du transfert des clients et livraison de voitures en cas de location de voiture sans chauffeur.
+    \item \textbf{L'admin} surveillera toutes les opérations en cours, trouvera des solutions s'il y a un problème chez un client et il aura l'autorité de prendre les décisions nécessaires pour assurer les services offerts aux clients.
+\end{itemize}
+\clearpage
+
+\subsection{Diagramme de cas d'utilisation}
+\begin{figure}[h!]
     \centering
     \includegraphics[height=0.8\textheight]{uml/use_cases.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Diagramme de cas d'utilisation}
     \label{fig:use_case_diag}
 \end{figure}
+\clearpage
 
-\subsubsection{Diagramme de classes}
-\begin{figure}[H]
+\subsection{Diagramme de classes}
+\begin{figure}[h!]
     \centering
-    \rotatebox[origin=c]{-90}{\includegraphics[width=1.2\textwidth]{uml/class_diag.png}}
-    \vspace{1cm}
+    \rotatebox[origin=c]{90}{\includegraphics[width=1.1\textwidth]{uml/class_diag.png}}
+    \vspace{.5cm}
     \caption{Diagramme de classe}
     \label{fig:class_diag}
 \end{figure}
-\subsection{UI/UX Design}
+
+\section{UI/UX Design}
 Avant de passer au développement de l'application, il faut créer d'abord les prototypes des interfaces utilisateur. \\
 \noindent Cette étape est nécessaire pour tester plusieurs approches dans les interfaces de l'application, s'assurer d'offrir une expérience utilisateur agréable. \\
 \vspace{1cm}
@@ -47,18 +52,18 @@ Avant de passer au développement de l'application, il faut créer d'abord les p
         \label{fig:sign_in_page}
     \end{figure}
 \end{multicols}
-\newpage
+\clearpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.25\textwidth]{ui_screenshots/No Active trip.png}
+        \includegraphics[width=0.2\textwidth]{ui_screenshots/No Active trip.png}
         \vspace{1cm}
         \caption{\centering Page d'accueil.}
         \label{fig:no_active_trip}
     \end{figure}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.25\textwidth]{ui_screenshots/Active trip.png}
+        \includegraphics[width=0.2\textwidth]{ui_screenshots/Active trip.png}
         \vspace{1cm}
         \caption{\centering Page d'accueil lors d'un transfert en cours.}
         \label{fig:active_trip}
@@ -80,77 +85,77 @@ Avant de passer au développement de l'application, il faut créer d'abord les p
         \label{fig:follow_driver}
     \end{figure}
 \end{multicols}
-\newpage
+\clearpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.25\textwidth]{ui_screenshots/Available cars – 1.png}
+        \includegraphics[width=0.23\textwidth]{ui_screenshots/Available cars – 1.png}
         \vspace{1cm}
         \caption{\centering Liste de voitures disponibles.}
         \label{fig:available_cars}
     \end{figure}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.25\textwidth]{ui_screenshots/Car details.png}
+        \includegraphics[width=0.24\textwidth]{ui_screenshots/Car details.png}
         \vspace{1cm}
         \caption{\centering Détails de la voiture sélectionnée.}
         \label{fig:car_details}
     \end{figure}
 \end{multicols}
-\vspace{1cm}
+% \vspace{1cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.25\textwidth]{ui_screenshots/DMs.png}
-    \vspace{1cm}
+    \includegraphics[width=0.24\textwidth]{ui_screenshots/DMs.png}
+    \vspace{.5cm}
     \caption{\centering Messagerie instantannée avec le chauffeur.}
     \label{fig:dms}
 \end{figure}
 
-\subsection{Technologies et logiciels utilisés}
+\section{Technologies et logiciels utilisés}
 Comme cette application sera une application mobile, il est nécessaire que la performance soit la priorité lors du développement. C'est pourquoi on a choisi les technologies suivantes pour offrir une application rapide, performante, facile à utiliser.\\
 \noindent Ses différentes technologies sont classifiés dans trois domaines principalement : Conception des interfaces graphiques, développement de l'application, et développement du back-end de l'application.\\
-\subsubsection{Adobe Xd}
+\subsection{Adobe Xd}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.25\textwidth]{xd_logo.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Logo Adobe Xd}
     \label{fig:xd_logo}
 \end{figure}
 \textit{\textbf{Adobe Xd}} est un outil de conception et modélisation des interfaces utilisateur des applications web et mobiles, développé par Adobe Inc.\\
 \noindent Grâce aux outils fournis par Adobe Xd, la conception, l'amélioration et la rectification des interfaces graphiques et l'expérience de l'utilisateur de l'application sera plus facile, plus rapide et plus efficace.
 \noindent Dans le cadre de ce projet, Adobe Xd a été utilisé pour la création des prototypes des interfaces graphiques, qui seront, par la suite, construits en application mobile à l'aide de Flutter.
-\subsubsection{Flutter}
+\subsection{Flutter}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.25\textwidth]{flutter.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Logo Flutter}
     \label{fig:flutter_logo}
 \end{figure}
 \textit{\textbf{Flutter}} est un kit de développement (SDK) open-source créé par Google et publié en 2017.\\
 \noindent Flutter permet de créer des application mobiles (Android / iOS), web et meême desktop (Windows / Linux / MacOS), avec une seule base de code en Dart, un langage de programmation développé aussi par Google. \\
 \noindent Flutter présente plusieurs avantages qui permettent de créer des applications mobiles performantes et réduit aussi le coût et le temps de développement nécessaires, grâce au langage de programmation utilisé \textit{\textbf{Dart}} qui est très facile à maîtriser et qui offre plusieurs avantages, dont le plus important la fonctionnalité de <<\textit{\textbf{Hot Reload}}>> qui permet de recharger l'application et afficher les changements sur l'écran sans passer par la recompilation du code source.
-\subsubsection{Express JS}
+\subsection{Express JS}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.25\textwidth]{express.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Logo Express}
     \label{fig:express_logo}
 \end{figure}
 \textit{\textbf{Express JS}} est un framework back-end gratuit et open-source pour NodeJS. Créé par TJ Holowaychuk, la première version publique d'Express JS a été introduite au public en 2010.\\
 Express JS est un framework minimaliste, très léger pour garantir une performance optimale et une exécution rapide. Ce framework est aussi très flexible, même s'il fournit que quelques fonctionnalités, grâce à \textit{\textbf{NPM}}, le gestionnaire de packets de NodeJS, il peut être complété par plusieurs librairies disponibles.\\
 \noindent Grâce à son minimalisme et facilité d'implémentation, ExpressJS est utilisé par plusieurs par nombreuses sociétés dans le monde, pour développer tout type d'applications, parmi ses sociétés il y a des géants de technologies tels que \textit{\textbf{IBM}}, \textit{\textbf{Uber}}, et plusieurs autres.
-\subsubsection{MongoDB}
+\subsection{MongoDB}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.25\textwidth]{mongo.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Logo MongoDB}
     \label{fig:mongo_logo}
 \end{figure}
@@ -159,12 +164,12 @@ Express JS est un framework minimaliste, très léger pour garantir une performa
 \noindent Il est depuis devenu l'un des systèmes de gestion de base de données les plus utilisées, notamment pour des sites web très populaires tels que : \textit{\textbf{SourseForge.net}}, \textit{\textbf{eBay}} et \textit{\textbf{The New York Times}}.\\
 \noindent Contrairement à une base de données relationnelle SQL traditionnelle, MongoDB ne repose pas sur des tableaux et des colonnes. Les données sont stockées sous forme de collections et de documents.
 Les documents sont des paires de valeurs / clés servant d'unité de données de base. Les collections quant à elles contiennent des ensembles de documents et de fonctions. Elles sont l'équivalent des tableaux dans les bases de données relationnelles classiques.
-\subsubsection{Firebase}
+\subsection{Firebase}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.25\textwidth]{firebase.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Logo Firebase}
     \label{fig:firebase_logo}
 \end{figure}
@@ -177,23 +182,23 @@ Les documents sont des paires de valeurs / clés servant d'unité de données de
     \item \textbf{Fireabse Authentification}: Un SDK prêt et facile à exploiter qui permet de d'authentifier les utilisateurs en offrant plusieurs méthodes d'authentification tels que Google, Apple, Facebook, Email et mot de passe, numéro de téléphone et plusieurs d'autres méthodes pour assurer l'authentification de l'utilisateur.
     \item \textbf{Firebase Cloud Messaging}: Permet de connecter plusieurs périphériques au serveur dans les meilleures conditions (fiabilité et économie de batterie). Ce service permet de recevoir et envoyer des notification sur les différentes plateformes (Web / iOS / Android). Avec Firebase Cloud Messaging, il est possible aussi d'assurer un service de messagerie instantanée entre les utilisateurs.
 \end{itemize}
-\subsubsection{Git}
+\subsection{Git}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.25\textwidth]{git.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Logo Git}
     \label{fig:git_logo}
 \end{figure}
 \textit{\textbf{Git}} est un système de contrôle de version open-source créé en 2005 par \textit{\textbf{Linus Torvalds}}, le créateur du noyau du système d'exploitation Linux.\\
 \noindent Git permet de gérer les ajouts et changements apportés au code source de manière tracée. Ainsi, si une erreur est commise, les développeurs peuvent revenir en arrière et comparer les versions antérieures du code, ce qui leur permet de corriger l'erreur tout en minimisant les perturbations pour tous les membres de l'équipe.
-\subsubsection{Swagger}
+\subsection{Swagger}
 \vspace{1cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.25\textwidth]{swagger.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Logo Swagger}
     \label{fig:swagger_logo}
 \end{figure}

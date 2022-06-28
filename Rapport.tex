@@ -1,5 +1,5 @@
-\documentclass[a4paper,12pt]{article}
-\usepackage{fontspec}
+\documentclass[twoside,titlepage,numbers=noenddot,cleardoublepage=empty,paper=a4,fontsize=12pt,twoside=semi]{report} 
+% \usepackage{fontspec}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{ragged2e}
@@ -18,66 +18,71 @@
 \usepackage{pdfpages}
 \usepackage{parskip}
 \usepackage{minitoc}
+\usepackage{clrdblpg} %blank doublepages
 
-
+\pagestyle{headings}
 
 \special{pdf:minorversion 7} %set minorversion
-
-
-
 
 \title{Rapport Project fin d'études SPN Cars mobile App}
 \author{Alaa Abdelbaki}
 \date{2022}
 
 \graphicspath{{./images/}}
-\setmainfont{Times New Roman}
+%\setmainfont{Times New Roman}
 \onehalfspacing
 \renewcommand*\contentsname{Table de matières}
 \renewcommand*\listfigurename{Liste de figures}
 
-
-
-
-
 \begin{document}
+
+\pagenumbering{Roman}
 % Title page
 % \input{chapters/page_de_garde.tex}
 \includepdf[pages={1}]{./chapters/garde.pdf}
-\newpage
-\input{chapters/empty.tex}
+\cleardoublepage
+
 % Dédicaces
 \raggedright
-\newpage
 \input{chapters/dedicace.tex}
+\cleardoublepage
+
 % Remerciements
-\newpage
 \input{chapters/remerciements.tex}
+\cleardoublepage
+
 % Table of contents
-\newpage
+\dominitoc
 \tableofcontents
-\newpage
-\listoffigures
-\newpage
+\listoffigures \mtcaddchapter
+\cleardoublepage
+
+\pagenumbering{arabic}
+
 % Introduction
 \input{chapters/introduction.tex}
-\newpage
+\cleardoublepage
+
 % Cadre du projet
 \input{chapters/cadre_du_projet.tex}
+\cleardoublepage
+
 % Spécifications des besoins
-\newpage
 \input{chapters/besoins.tex}
+\cleardoublepage
+
 % Conception
-\newpage
 \input{chapters/conception.tex}
+\cleardoublepage
+
 % Réalisation de l'application
-\newpage
 \input{chapters/realisation.tex}
-\newpage
+\cleardoublepage
+
+% Conclusion
 \input{chapters/conclusion.tex}
-\newpage
-\include{chapters/empty.tex}
-\newpage
+\cleardoublepage
+
 \includepdf[pages={1}]{./chapters/last.pdf}
 
 \end{document}

@@ -1,14 +1,15 @@
-\thispagestyle{plain}
-\newgeometry{margin=2.5cm}
-\section{Réalisation de l'application}
-\textit{Dans ce chapitre, on décrirera toutes les fonctionnalités de l'application, leurs fonctionnement, les différents scénarii d'exécution avec des captures d'écran de chaque interface d'utilisateur avec un diagramme de séquences qui décrit en détail la fonctionnalité mentionnée.}
+\chapter{Réalisation de l'application}
+\minitoc
+\cleardoublepage
+\section*{Introduction}
+Dans ce chapitre, on décrirera toutes les fonctionnalités de l'application, leurs fonctionnement, les différents scénarii d'exécution avec des captures d'écran de chaque interface d'utilisateur avec un diagramme de séquences qui décrit en détail la fonctionnalité mentionnée.
 \justifying
-\subsection{Création de compte}
+\section{Création de compte}
 La première étape pour utiliser l'application SPN-Cars est de créer un compte. Ce compte permettra aux utilisateurs de bénéficier de tous les services offerts par l'application.\\
 \noindent Pour créer un compte l'utilisateur a la possibilité de choisir trois méthodes : Créer un compte avec son émail et choisir un mot de passe, ou créer un compte tout simplement en utilisant l'option de création de compte avec son compte Google ou Apple.
-\subsubsection{Création de compte avec email et mot de passe}
+\subsection{Création de compte avec email et mot de passe}
 C'est la méthode la plus basique qui existait depuis toujours. Pour créer un compte, l'utilisateur doit tout d'abord entrer son adresse email, un mot de passe, et une confirmation de cette mot de passe. Lors de l'appui sur le bouton de <<Créer un compte>>, l'application envoie une requête vers le serveur back-end afin de vérifier l'existance d'un compte d'utilisateur utilisant la même adresse e-mail. Après une recherche effectuée sur les utilisateurs, le serveur back-end envoie une réponse positive s'il n'a trouvé aucun compte d'utilisateur utilisant l'adresse e-mail entrée par l'utilisateur, sinon une réponse négative sera envoyée. Selon la réponse retournée par le serveur l'application redérigera l'utilisateur vers une page pour compléter l'étape de création de compte si la réponse du serveur est positive, ou affichera un message d'erreur avec l'erreur adéquate si la réponse du serveur est négative.
-\newpage
+\clearpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \begin{center}
@@ -32,11 +33,11 @@ C'est la méthode la plus basique qui existait depuis toujours. Pour créer un c
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{uml/register_email.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Diagramme de séquence : Création de compte avec E-mail et mot de passe.}
     \label{fig:seq_register_email}
 \end{figure}
-\subsubsection{Création de compte avec Google ou Apple}
+\subsection{Création de compte avec Google ou Apple}
 Cette methode est la plus facile et la plus rapide pour créer un compte ou s'authentifier. Avec un simple appui sur le bouton adéquat, une requête envoyée aux services de Google ou Apple pour récupérer les données du compte choisi. Ses données sont :
 \begin{itemize}
     \item Un identifiant unique du compte Google ou Apple.
@@ -45,32 +46,32 @@ Cette methode est la plus facile et la plus rapide pour créer un compte ou s'au
     \item La photo de profil utilisée avec ce compte.
 \end{itemize}
 Ses informations seront nécessaires pour passer la première étape de création de compte et avec eux l'utilisateur gagnera un peu de temps lors de la création de son compte.
-\vspace{1cm}
+\vspace{.5cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{uml/apple_google.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Diagramme de séquence : Création de compte avec Un compte Google / Apple.}
     \label{fig:seq_register_apple_google}
 \end{figure}
-\subsection{Authentification}
+\section{Authentification}
 L'authentification est la première étape dans le cycle de vie de l'application, lors du premier démarrage de l'application il est nécessaire de vérifier si l'utilisateur est déjà connecté à l'application. Grâce à cette étape on peut identifier l'utilisateur, et limiter les requêtes envoyées au serveur back-end.\\
 \noindent Pour s'authentifier l'utilisateur peut choisir trois méthodes différentes : Email et mot de passe, avec son compte Google, ou avec son compte Apple.\\
 La validation des champs est une étape nécessaire pour s'assurer que l'utilisateur n'envoie que des valeurs correctes vers les API de connexion, ce qui permet d'éviter les erreurs inattendues.
-\vspace{1cm}
+\vspace{.5cm}
 \begin{center}
     \begin{multicols}{2}
         \begin{figure}[H]
             \centering
             \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/login_page.png}
-            \vspace{1cm}
+            \vspace{.5cm}
             \caption{Page de Login.}
             \label{fig:app_login}
         \end{figure}
         \begin{figure}[H]
             \centering
             \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/login_page_validation.png}
-            \vspace{1cm}
+            \vspace{.5cm}
             \caption{Validation des champs de Login.}
             \label{fig:app_login_validation}
         \end{figure}
@@ -81,7 +82,7 @@ La validation des champs est une étape nécessaire pour s'assurer que l'utilisa
     \begin{figure}[H]
         \centering
         \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/login_page_google.png}
-        \vspace{1cm}
+        \vspace{.5cm}
         \caption{Login avec Google.}
         \label{fig:app_login_google}
     \end{figure}
@@ -90,22 +91,21 @@ La validation des champs est une étape nécessaire pour s'assurer que l'utilisa
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{uml/Authentification.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Diagramme de séquences: Authentification.}
     \label{fig:seq_auth}
 \end{figure}
-\subsection{Page d'accueil}
+\section{Page d'accueil}
 Une fois l'utilisateur est a réussi à s'authentifier, la page d'accueil s'affiche. Cette page diffère d'un utilisateur à un autre selon les services demandés par l'utilisateurs: Si l'utilisateur a un service actif le moment de sa connexion, la liste de voitures louées avec les détails de chaque service actif demandé, et s'il n'a pas de services actif le moment de sa connexion, deux boutons seront affichés : <<Rent a car>> pour louer une voiture sans chauffeur et <<Request a transfer>> pour demander un chauffeur avec une voiture.
-\vspace{1cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{uml/home.png}
-    \vspace{1cm}
+    \includegraphics[width=.9\textwidth]{uml/home.png}
+    \vspace{.5cm}
     \caption{Diagramme de séquences : Page d'accueil.}
     \label{fig:seq_home}
 \end{figure}
-\vspace{1cm}
-\subsection{Gestion de profil}
+\vspace{.5cm}
+\section{Gestion de profil}
 Chaque utilisateur possède un profil personnel, ce profil affichera les informations nécessaires pour faciliter la communication entre utilisateurs dans le futur (Ex: Contact entre chauffuer et client).\\
 \noindent La page de profil, dans l'application SPN-Cars, est une page très simple qui contient les informations de base de l'utilisateur :
 \begin{itemize}
@@ -118,7 +118,7 @@ Chaque utilisateur possède un profil personnel, ce profil affichera les informa
 \end{itemize}
 De toutes ses données seuls le nom, prénom, photo de profil et numéro de téléphone seront accessible aux chauffeurs pour assurer une communication avec les clients.\\
 \noindent L'utilisateur peut modifier tous ses informations personnelles tout simplement en modifiant les champs contenant l'information à changer, et pour la photo de profile i'l suffit d'appuier sur la photo pour la remplacer par une autre, soit prendre une nouvelle photo en utilisant l'appareil photo du smartphone, ou en choisissant une photo existante depuis la gallerie. Une fois l'image est choisie, l'utilisateur sera redérigé vers une page pour recadrer l'image et choisir la zone qui sera affichée dans la page de profile, une fois l'image est recadrée, elle sera compressée pour réduire sa taille et faciliter son transfert vers le serveur distant.
-\subsection{Demander un service}
+\section{Demander un service}
 Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les paramètres suivants :
 \begin{itemize}
     \item Le type de service demandé (Location / Transfert / Excursion / Long Ride).
@@ -128,24 +128,24 @@ Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les pa
     \item L'heure d'arrivée (Pas toujours disponible selon le type de service).
     \item La durée du service demandé (Pas toujours disponible selon le type de service).
 \end{itemize}
-\vspace{1cm}
+\vspace{.5cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{uml/rent a car.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Diagramme de séquences: Demander une location.}
     \label{fig:seq_location}
 \end{figure}
-\vspace{1cm}
+\vspace{.5cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{uml/transfert.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Diagramme de séquences: Demander un transfert.}
     \label{fig:seq_transfert}
 \end{figure}
-\vspace{1cm}
-\newpage
+\vspace{.5cm}
+\clearpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
@@ -178,18 +178,18 @@ Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les pa
         \label{fig:app_transfer_directions}
     \end{figure}
 \end{multicols}
-\subsection{Affichage des voitures disponibles}
+\section{Affichage des voitures disponibles}
 Après sélection des informations nécessaires par l'utilisateur, une recherche des voitures qui répondent aux critères de recherche choisis. Une fois une liste de voitures est prête, les voitures seront affichés. L'utilisateur peut appuyer sur une voiture pour découvrir ses caractéristiques et choisir ensuite de la louer ou continuer sa recherche.
 Le diagramme suivant explique la procédure de la sélection de voitures.
-\vspace{1cm}
+\vspace{.5cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{uml/choisir voiture.png}
-    \vspace{1cm}
+    \vspace{.5cm}
     \caption{Diagramme de séquences : Choisir une voiture}
     \label{fig:seq_car_select}
 \end{figure}
-\newpage
+\clearpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
@@ -206,11 +206,11 @@ Le diagramme suivant explique la procédure de la sélection de voitures.
         \label{fig:app_available_cars_empty}
     \end{figure}
 \end{multicols}
-\subsection{Signature numérique de contrat de location}
+\section{Signature numérique de contrat de location}
 Pour le cas de location de voitures, un contrat doit être signé entre le client et la société. Pour s'assurer de la signature du contrat, on a opté pour la solution de signature numérique à l'aide du service offert par DocuSign, qui se spécialise dans le domaine de la signature électronique et la gestion des transactions numériques pour faciliter les échanges et les validations électroniques des contrats et de documents.\\
 \noindent Pour créer une réservation de location de voitures, il suffit d'appuier sur le bouton de <<Book now>> dans la page de détails de la voiture choisie, et une réservation sera créée avec tous les détails : La position GPS, la date de récupération et retour de voiture et les informations de contact du client. Une fois ses informations sont enregistrées, un email contenant le contrat sera envoyé au client pour le signer, et l'identifiant de ce contrat sera enrigistré avec les informations de la réservation.\\
 \noindent Dans l'application le client est redérigé vers la page de vérification de signature où il doit appuier sur le bouton de vérification de l'état de contrat. Pour signer ce contrat, il suffit d'ouvrir le document envoyé à l'addresse email du client, le signer, et retourner vers l'application. Lors de l'appui sur le bouton <<Verify Signature>>, une requête sera envoyée au back-end qui contactera les APIs de <<DocuSign>> pour vérifier l'état de signature du contrat à l'aide de l'identifiant du contrat fournis lors de la création de la réservation. Si l'état de contrat est <<sent>>, le contrat n'est pas encore signé, et un message d'erreur sera affiché à l'utilisateur. Sinon si létat du contrat est <<completed>>, les contrat est, donc, signé et l'utilisateur est redérigé vers la page de paiement.
-\vspace{1cm}
+\vspace{.5cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{uml/docusign.png}
@@ -218,7 +218,7 @@ Pour le cas de location de voitures, un contrat doit être signé entre le clien
     \caption{Diagramme de séquences : Envoi du contrat de location.}
     \label{fig:seq_location_contract}
 \end{figure}
-\newpage
+\clearpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
@@ -235,7 +235,7 @@ Pour le cas de location de voitures, un contrat doit être signé entre le clien
         \label{fig:verify_sig}
     \end{figure}
 \end{multicols}
-\vspace{1cm}
+\vspace{.5cm}
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
@@ -252,7 +252,7 @@ Pour le cas de location de voitures, un contrat doit être signé entre le clien
         \label{fig:sign_documents}
     \end{figure}
 \end{multicols}
-\vspace{1cm}
+\vspace{.5cm}
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
@@ -269,10 +269,10 @@ Pour le cas de location de voitures, un contrat doit être signé entre le clien
         \label{fig:confirm_sig}
     \end{figure}
 \end{multicols}
-\subsection{Paiement}
+\section{Paiement}
 Pour le paiement des services offert par SPN Cars, l'utilisateur utilisera <<Apple Pay>> s'il utilise un iPhone ou <<Google Pay>> s'il utilise un smartphone Android, qui sont, grâce à leurs haute disponibilitées, le choix optimal pour effectuer des paiements en ligne avec son propre smarthphone.\\
 Pour effectuer un paiement avec l'application SPN Cars, il suffit de signer le contrat de location dans le cas de location de voitures, ou sélectionner une voiture dans le cas de demande de transfert, après la page de paiement avec le bouton de paiement selon le type de smartphone sera affiché. Lors de l'appui, L'interface des applications de paiement adéquates seront affichées pour continuer la transaction. Une fois terminé, l'utilisateur sera redérigé vers la page d'accueil si le paiement est effectué, ou un message d'erreur sera affiché si non.
-\vspace{1cm}
+\vspace{.5cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{uml/payment.png}
@@ -280,7 +280,7 @@ Pour effectuer un paiement avec l'application SPN Cars, il suffit de signer le c
     \caption{Diagramme de séquences: Paiement des services.}
     \label{fig:seq_payment}
 \end{figure}
-\newpage
+\clearpage
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
@@ -297,7 +297,7 @@ Pour effectuer un paiement avec l'application SPN Cars, il suffit de signer le c
         \label{fig:pay_details}
     \end{figure}
 \end{multicols}
-\subsection{Localiser une voiture}
+\section{Localiser une voiture}
 Lorsqu'une réservation atteint la date de début et sera affichée dans la page d'accueil, le client peut appuier sur la réservation et voir plus de détails sur sa réservation et sa voiture. Une fois appuié sur le bouton <<See more>>, le client sera redériger vers une page qui affiche la position de sa voiture sur un plan. Cette position sera mise à jour en temps réel si le chauffeur est en train de conduire la voiture.\\
 \noindent La page permet aussi d'afficher les informations basiques du chauffeur avec une possiblité de le contacter soit par appel téléphonique soit par message.
 \begin{figure}[H]
@@ -307,8 +307,8 @@ Lorsqu'une réservation atteint la date de début et sera affichée dans la page
     \caption{Affichage détails de la réservation.}
     \label{fig:res_details}
 \end{figure}
-\subsection{Messagerie instantanée}
-\subsection{Documentation des API}
+\section{Messagerie instantanée}
+\section{Documentation des API}
 La documentation des APIs est une étape nécessaire dans le développement de n'importe quelle application. Une documentation accessible et facilement exploitable est une condition préalable au développement des API. Il est important d'avoir une documentation toujours à jour quand le code/les fonctionnalités de l'API évoluent.\\
 \noindent Et puisque le modèle de développement chez SPN est centré sur le travail collaboratif, il est très important d'avoir une documentation claire et et facile à exploiter des APIs.
 
@@ -320,7 +320,7 @@ On va prendre un exemple de documentation de l'API de l'entitée <<Voiture>> où
     \caption{Schéma de documentation des API.}
     \label{fig:api_doc_schema}
 \end{figure}
-\newpage
+\clearpage
 \begin{figure}[H]
     \centering
     \includegraphics[height= 0.8\textheight,width=\textwidth]{api.png}
