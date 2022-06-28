@@ -298,6 +298,15 @@ Pour effectuer un paiement avec l'application SPN Cars, il suffit de signer le c
     \end{figure}
 \end{multicols}
 \subsection{Localiser une voiture}
+Lorsqu'une réservation atteint la date de début et sera affichée dans la page d'accueil, le client peut appuier sur la réservation et voir plus de détails sur sa réservation et sa voiture. Une fois appuié sur le bouton <<See more>>, le client sera redériger vers une page qui affiche la position de sa voiture sur un plan. Cette position sera mise à jour en temps réel si le chauffeur est en train de conduire la voiture.\\
+\noindent La page permet aussi d'afficher les informations basiques du chauffeur avec une possiblité de le contacter soit par appel téléphonique soit par message.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height= 0.4\textheight]{ui_screenshots/app_screenshots/details.png}
+    \captionsetup{justification=centering}
+    \caption{Affichage détails de la réservation.}
+    \label{fig:res_details}
+\end{figure}
 \subsection{Messagerie instantanée}
 \subsection{Documentation des API}
 La documentation des APIs est une étape nécessaire dans le développement de n'importe quelle application. Une documentation accessible et facilement exploitable est une condition préalable au développement des API. Il est important d'avoir une documentation toujours à jour quand le code/les fonctionnalités de l'API évoluent.\\
@@ -306,7 +315,7 @@ La documentation des APIs est une étape nécessaire dans le développement de n
 On va prendre un exemple de documentation de l'API de l'entitée <<Voiture>> où on a suivi les spécification de Open Api pour créer la documentation de ses APIs.
 \begin{figure}[H]
     \centering
-    \includegraphics[height= 0.8\textheight]{openapi.png}
+    \includegraphics[height= \textheight]{openapi.png}
     \captionsetup{justification=centering}
     \caption{Schéma de documentation des API.}
     \label{fig:api_doc_schema}
