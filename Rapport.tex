@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{book}
 \usepackage{fontspec}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -18,12 +18,17 @@
 \usepackage{pdfpages}
 \usepackage{parskip}
 \usepackage{minitoc}
+\usepackage{titlesec}
+\usepackage{csquotes}
+\usepackage[sorting=none]{biblatex}
 
+\addbibresource{bibliography.bib}
 
 
 \special{pdf:minorversion 7} %set minorversion
+\raggedbottom
 
-
+\dominitoc% Initialization of minitoc
 
 
 \title{Rapport Project fin d'études SPN Cars mobile App}
@@ -38,14 +43,29 @@
 
 
 
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\Large\itshape} % format
+{Chapitre \ \thechapter} % label
+{0ex} % sep
+{
+    \rule{\textwidth}{1pt}
+    \vspace{0ex}
+    \centering
+} % before-code
+[
+\vspace{0ex}%
+\rule{\textwidth}{1pt}
+] % after-code
 
-
+\usepackage[french]{babel}
 \begin{document}
 % Title page
 % \input{chapters/page_de_garde.tex}
 \includepdf[pages={1}]{./chapters/garde.pdf}
-\newpage
-\input{chapters/empty.tex}
+% \newpage
+% \input{chapters/empty.tex}
 % Dédicaces
 \raggedright
 \newpage
@@ -55,9 +75,16 @@
 \input{chapters/remerciements.tex}
 % Table of contents
 \newpage
+\thispagestyle{empty}
 \tableofcontents
+\adjustmtc
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+
 \newpage
+\thispagestyle{empty}
 \listoffigures
+\addtocontents{lof}{\protect\thispagestyle{empty}}
+
 \newpage
 % Introduction
 \input{chapters/introduction.tex}
@@ -65,8 +92,8 @@
 % Cadre du projet
 \input{chapters/cadre_du_projet.tex}
 % Spécifications des besoins
-\newpage
-\input{chapters/besoins.tex}
+% \newpage
+% \input{chapters/besoins.tex}
 % Conception
 \newpage
 \input{chapters/conception.tex}
@@ -76,7 +103,7 @@
 \newpage
 \input{chapters/conclusion.tex}
 \newpage
-\include{chapters/empty.tex}
+\printbibliography
 \newpage
 \includepdf[pages={1}]{./chapters/last.pdf}
 

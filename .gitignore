@@ -17,7 +17,7 @@
 *.lof
 *.lot
 *.maf
-*.mtc
+*.mtc*
 *.mtc1
 *.out
 *.fdb_latexmk
