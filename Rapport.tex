@@ -21,6 +21,7 @@
 \usepackage{titlesec}
 \usepackage{csquotes}
 \usepackage[sorting=none]{biblatex}
+\usepackage{tabularx}
 
 \addbibresource{bibliography.bib}
 
@@ -98,13 +99,13 @@
 \newpage
 \input{chapters/conception.tex}
 % Réalisation de l'application
-\newpage
+\clearpage
 \input{chapters/realisation.tex}
-\newpage
+\clearpage
 \input{chapters/conclusion.tex}
-\newpage
+\clearpage
 \printbibliography
-\newpage
+\clearpage
 \includepdf[pages={1}]{./chapters/last.pdf}
 
 \end{document}
