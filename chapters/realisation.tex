@@ -1,13 +1,13 @@
 \chapter{Réalisation de l'application}
 \minitoc
 \clearpage
-\section*{Introduction} Dans ce chapitre, on décrirera toutes les fonctionnalités de l'application, leurs fonctionnement, les différents scénarii d'exécution avec des captures d'écran de chaque interface d'utilisateur avec un diagramme de séquences qui décrit en détail la fonctionnalité mentionnée
+\section*{Introduction} Dans ce chapitre, on décrira toutes les fonctionnalités de l'application, leurs fonctionnement, les différents scénarii d'exécution avec des captures d'écran de chaque interface d'utilisateur avec un diagramme de séquences qui décrit en détail la fonctionnalité mentionnée
 \justifying
 \section{Création de compte}
 La première étape pour utiliser l'application SPN-Cars est de créer un compte. Ce compte permettra aux utilisateurs de bénéficier de tous les services offerts par l'application.\\
-\noindent Pour créer un compte l'utilisateur a la possibilité de choisir trois méthodes : Créer un compte avec son émail et choisir un mot de passe, ou créer un compte tout simplement en utilisant l'option de création de compte avec son compte Google ou Apple.
+\noindent Pour créer un compte, l'utilisateur a la possibilité de choisir trois méthodes : Créer un compte avec son émail et choisir un mot de passe, ou créer un compte tout simplement en utilisant l'option de création de compte avec son compte Google ou Apple.
 \subsection{Création de compte avec email et mot de passe}
-C'est la méthode la plus basique qui existait depuis toujours. Pour créer un compte, l'utilisateur doit tout d'abord entrer son adresse email, un mot de passe, et une confirmation de cette mot de passe. Lors de l'appui sur le bouton de <<Créer un compte>>, l'application envoie une requête vers le serveur back-end afin de vérifier l'existance d'un compte d'utilisateur utilisant la même adresse e-mail. Après une recherche effectuée sur les utilisateurs, le serveur back-end envoie une réponse positive s'il n'a trouvé aucun compte d'utilisateur utilisant l'adresse e-mail entrée par l'utilisateur, sinon une réponse négative sera envoyée. Selon la réponse retournée par le serveur l'application redérigera l'utilisateur vers une page pour compléter l'étape de création de compte si la réponse du serveur est positive, ou affichera un message d'erreur avec l'erreur adéquate si la réponse du serveur est négative.
+C'est la méthode la plus basique qui existe depuis toujours. Pour créer un compte, l'utilisateur doit tout d'abord entrer son adresse email, un mot de passe, et une confirmation de ce mot de passe. Lors de l'appui sur le bouton de <<Créer un compte>>, l'application envoie une requête vers le serveur back-end afin de vérifier l'existence d'un compte d'utilisateur utilisant la même adresse e-mail. Après une recherche effectuée sur les utilisateurs, le serveur back-end envoie une réponse positive s'il n'a trouvé aucun compte d'utilisateur utilisant l'adresse e-mail entrée par l'utilisateur, sinon une réponse négative sera envoyée. Selon la réponse retournée par le serveur l'application redirigera l'utilisateur vers une page pour compléter l'étape de création de compte si la réponse du serveur est positive, ou affiche un message d'erreur avec l'erreur adéquate si la réponse du serveur est négative.
 \newpage
 \begin{multicols}{2}
     \begin{figure}[H]
@@ -15,7 +15,7 @@ C'est la méthode la plus basique qui existait depuis toujours. Pour créer un c
             \centering
             \includegraphics[height = 0.4 \textheight]{ui_screenshots/app_screenshots/register.png}
             \captionsetup{justification=centering}
-            \caption{Formulare de création de compte : 1ère étape.}
+            \caption{Formulaire de création de compte : 1ère étape.}
             \label{fig:app_register}
         \end{center}
     \end{figure}
@@ -24,13 +24,13 @@ C'est la méthode la plus basique qui existait depuis toujours. Pour créer un c
             \centering
             \includegraphics[height = 0.4 \textheight]{ui_screenshots/app_screenshots/finsih_register.png}
             \captionsetup{justification=centering}
-            \caption{Formulare de création de compte : 2ème étape.}
+            \caption{Formulaire de création de compte : 2ème étape.}
             \label{fig:app_finish_register}
         \end{center}
     \end{figure}
 \end{multicols}
 \subsection{Création de compte avec Google ou Apple}
-Cette methode est la plus facile et la plus rapide pour créer un compte ou s'authentifier. Avec un simple appui sur le bouton adéquat, une requête envoyée aux services de Google ou Apple pour récupérer les données du compte choisi. Ses données sont :
+Cette méthode est la plus facile et la plus rapide pour créer un compte ou s'authentifier. Avec un simple appui sur le bouton adéquat, une requête envoyée aux services de Google ou Apple pour récupérer les données du compte choisi. Ses données sont :
 \begin{itemize}
     \item Un identifiant unique du compte Google ou Apple.
     \item L'adresse email du compte.
@@ -80,7 +80,7 @@ La validation des champs est une étape nécessaire pour s'assurer que l'utilisa
 \vspace{1cm}
 
 \section{Page d'accueil}
-Une fois l'utilisateur est a réussi à s'authentifier, la page d'accueil s'affiche. Cette page diffère d'un utilisateur à un autre selon les services demandés par l'utilisateurs: Si l'utilisateur a un service actif le moment de sa connexion, la liste de voitures louées avec les détails de chaque service actif demandé, et s'il n'a pas de services actif le moment de sa connexion, deux boutons seront affichés : <<Rent a car>> pour louer une voiture sans chauffeur et <<Request a transfer>> pour demander un chauffeur avec une voiture.
+Une fois l'utilisateur est a réussi à s'authentifier, la page d'accueil s'affiche. Cette page diffère d'un utilisateur à un autre selon les services demandés par l'utilisateur: Si l'utilisateur a un service actif le moment de sa connexion, la liste de voitures louées avec les détails de chaque service actif demandé, et s'il n'a pas de services actif le moment de sa connexion, deux boutons seront affichés : <<Rent a car>> pour louer une voiture sans chauffeur et <<Request a transfer>> pour demander un chauffeur avec une voiture.
 \vspace{1cm}
 
 \vspace{1cm}
@@ -91,12 +91,12 @@ Chaque utilisateur possède un profil personnel, ce profil affichera les informa
     \item La photo de profil.
     \item Le nom.
     \item Le prénom
-    \item L'addresse E-mail.
+    \item L'adresse E-mail.
     \item Le numéro de téléphone.
     \item La date de naissance.
 \end{itemize}
-De toutes ses données seuls le nom, prénom, photo de profil et numéro de téléphone seront accessible aux chauffeurs pour assurer une communication avec les clients.\\
-\noindent L'utilisateur peut modifier tous ses informations personnelles tout simplement en modifiant les champs contenant l'information à changer, et pour la photo de profile i'l suffit d'appuier sur la photo pour la remplacer par une autre, soit prendre une nouvelle photo en utilisant l'appareil photo du smartphone, ou en choisissant une photo existante depuis la gallerie. Une fois l'image est choisie, l'utilisateur sera redérigé vers une page pour recadrer l'image et choisir la zone qui sera affichée dans la page de profile, une fois l'image est recadrée, elle sera compressée pour réduire sa taille et faciliter son transfert vers le serveur distant.
+De toutes ses données seuls le nom, prénom, photo de profil et numéro de téléphone seront accessibles aux chauffeurs pour assurer une communication avec les clients.\\
+\noindent L'utilisateur peut modifier tous ses informations personnelles tout simplement en modifiant les champs contenant l'information à changer, et pour la photo de profile il suffit d'appuyer sur la photo pour la remplacer par une autre, soit prendre une nouvelle photo en utilisant l'appareil photo du smartphone, ou en choisissant une photo existante depuis la galerie. Une fois l'image est choisie, l'utilisateur sera redirigé vers une page pour recadrer l'image et choisir la zone qui sera affichée dans la page de profile, une fois l'image est recadrée, elle sera compressée pour réduire sa taille et faciliter son transfert vers le serveur distant.
 \section{Demander un service}
 Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les paramètres suivants :
 \begin{itemize}
@@ -143,7 +143,7 @@ Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les pa
     \end{figure}
 \end{multicols}
 \section{Affichage des voitures disponibles}
-Après sélection des informations nécessaires par l'utilisateur, une recherche des voitures qui répondent aux critères de recherche choisis. Une fois une liste de voitures est prête, les voitures seront affichés. L'utilisateur peut appuyer sur une voiture pour découvrir ses caractéristiques et choisir ensuite de la louer ou continuer sa recherche.
+Après sélection des informations nécessaires par l'utilisateur, une recherche des voitures qui répondent aux critères de recherche choisis. Une fois qu'une liste de voitures est prête, les voitures seront affichées. L'utilisateur peut appuyer sur une voiture pour découvrir ses caractéristiques et choisir ensuite de la louer ou continuer sa recherche.
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
@@ -162,8 +162,8 @@ Après sélection des informations nécessaires par l'utilisateur, une recherche
 \end{multicols}
 \section{Signature numérique de contrat de location}
 Pour le cas de location de voitures, un contrat doit être signé entre le client et la société. Pour s'assurer de la signature du contrat, on a opté pour la solution de signature numérique à l'aide du service offert par DocuSign, qui se spécialise dans le domaine de la signature électronique et la gestion des transactions numériques pour faciliter les échanges et les validations électroniques des contrats et de documents.\\
-\noindent Pour créer une réservation de location de voitures, il suffit d'appuier sur le bouton de <<Book now>> dans la page de détails de la voiture choisie, et une réservation sera créée avec tous les détails : La position GPS, la date de récupération et retour de voiture et les informations de contact du client. Une fois ses informations sont enregistrées, un email contenant le contrat sera envoyé au client pour le signer, et l'identifiant de ce contrat sera enrigistré avec les informations de la réservation.\\
-\noindent Dans l'application le client est redérigé vers la page de vérification de signature où il doit appuier sur le bouton de vérification de l'état de contrat. Pour signer ce contrat, il suffit d'ouvrir le document envoyé à l'addresse email du client, le signer, et retourner vers l'application. Lors de l'appui sur le bouton <<Verify Signature>>, une requête sera envoyée au back-end qui contactera les APIs de <<DocuSign>> pour vérifier l'état de signature du contrat à l'aide de l'identifiant du contrat fournis lors de la création de la réservation. Si l'état de contrat est <<sent>>, le contrat n'est pas encore signé, et un message d'erreur sera affiché à l'utilisateur. Sinon si létat du contrat est <<completed>>, les contrat est, donc, signé et l'utilisateur est redérigé vers la page de paiement.
+\noindent Pour créer une réservation de location de voitures, il suffit d'appuyer sur le bouton de <<Book now>> dans la page de détails de la voiture choisie, et une réservation sera créée avec tous les détails : La position GPS, la date de récupération et retour de voiture et les informations de contact du client. Une fois ses informations sont enregistrées, un email contenant le contrat sera envoyé au client pour le signer, et l'identifiant de ce contrat sera enregistré avec les informations de la réservation.\\
+\noindent Dans l'application, le client est redirigé vers la page de vérification de signature où il doit appuyer sur le bouton de vérification de l'état de contrat. Pour signer ce contrat, il suffit d'ouvrir le document envoyé à l'adresse email du client, le signer, et retourner vers l'application. Lors de l'appui sur le bouton <<Verify Signature>>, une requête sera envoyée au back-end qui contactera les APIs de <<DocuSign>> pour vérifier l'état de signature du contrat à l'aide de l'identifiant du contrat fourni lors de la création de la réservation. Si l'état de contrat est <<sent>>, le contrat n'est pas encore signé, et un message d'erreur sera affiché à l'utilisateur. Sinon si l'état du contrat est <<completed>>, les contrat est, donc, signé et l'utilisateur est redirigé vers la page de paiement.
 \vspace{1cm}
 
 \begin{multicols}{2}
@@ -218,8 +218,8 @@ Pour le cas de location de voitures, un contrat doit être signé entre le clien
     \end{figure}
 \end{multicols}
 \section{Paiement}
-Pour le paiement des services offert par SPN Cars, l'utilisateur utilisera <<Apple Pay>> s'il utilise un iPhone ou <<Google Pay>> s'il utilise un smartphone Android, qui sont, grâce à leurs haute disponibilitées, le choix optimal pour effectuer des paiements en ligne avec son propre smarthphone.\\
-Pour effectuer un paiement avec l'application SPN Cars, il suffit de signer le contrat de location dans le cas de location de voitures, ou sélectionner une voiture dans le cas de demande de transfert, après la page de paiement avec le bouton de paiement selon le type de smartphone sera affiché. Lors de l'appui, L'interface des applications de paiement adéquates seront affichées pour continuer la transaction. Une fois terminé, l'utilisateur sera redérigé vers la page d'accueil si le paiement est effectué, ou un message d'erreur sera affiché si non.
+Pour le paiement des services offerts par SPN Cars, l'utilisateur utilisera <<Apple Pay>> s'il utilise un iPhone ou <<Google Pay>> s'il utilise un smartphone Android, qui sont, grâce à leurs haute disponibilités, le choix optimal pour effectuer des paiements en ligne avec son propre smartphone.\\
+Pour effectuer un paiement avec l'application SPN Cars, il suffit de signer le contrat de location dans le cas de location de voitures, ou sélectionner une voiture dans le cas de demande de transfert, après la page de paiement avec le bouton de paiement selon le type de smartphone sera affiché. Lors de l'appui, L'interface des applications de paiement adéquates sera affichée pour continuer la transaction. Une fois terminé, l'utilisateur sera redirigé vers la page d'accueil si le paiement est effectué, ou un message d'erreur sera affiché si non.
 \vspace{1cm}
 
 \begin{multicols}{2}
@@ -239,18 +239,18 @@ Pour effectuer un paiement avec l'application SPN Cars, il suffit de signer le c
     \end{figure}
 \end{multicols}
 \section{Localiser une voiture}
-Lorsqu'une réservation atteint la date de début et sera affichée dans la page d'accueil, le client peut appuier sur la réservation et voir plus de détails sur sa réservation et sa voiture. Une fois appuié sur le bouton <<See more>>, le client sera redériger vers une page qui affiche la position de sa voiture sur un plan. Cette position sera mise à jour en temps réel si le chauffeur est en train de conduire la voiture.\\
-\noindent La page permet aussi d'afficher les informations basiques du chauffeur avec une possiblité de le contacter soit par appel téléphonique soit par message.
+Lorsqu'une réservation atteint la date de début et sera affichée dans la page d'accueil, le client peut appuyer sur la réservation et voir plus de détails sur sa réservation et sa voiture. Une fois appuyé sur le bouton <<See more>>, le client sera redériger vers une page qui affiche la position de sa voiture sur un plan. Cette position sera mise à jour en temps réel si le chauffeur est en train de conduire la voiture.\\
+\noindent La page permet aussi d'afficher les informations basiques du chauffeur avec une possibilité de le contacter soit par appel téléphonique soit par message.
 \begin{figure}[H]
     \centering
     \includegraphics[height= 0.4\textheight]{ui_screenshots/app_screenshots/details.png}
     \captionsetup{justification=centering}
-    \caption{Affichage détails de la réservation.}
+    \caption{Affichage des détails de la réservation.}
     \label{fig:res_details}
 \end{figure}
 \section{Messagerie instantanée}
-Une fois l'utilisateur a appuié sur le bouton pour contacter le chauffeur par messagerie instantannée, l'utilisateur est redérigé vers une page de messagerie avec le chauffeur où ils peuvent échanger des messages.\\
-\noindent L'utilisateur peut aussi retourner vers sa liste de conversations et afficher ses anciens messages depuis la pages d'accueil.
+Une fois que l'utilisateur a appuyé sur le bouton pour contacter le chauffeur par messagerie instantanée, l'utilisateur est redirigé vers une page de messagerie avec le chauffeur où ils peuvent échanger des messages.\\
+\noindent L'utilisateur peut aussi retourner vers sa liste de conversations et afficher ses anciens messages depuis la page d'accueil.
 \clearpage
 \begin{multicols}{2}
     \begin{figure}[H]
@@ -266,7 +266,7 @@ Une fois l'utilisateur a appuié sur le bouton pour contacter le chauffeur par m
         \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/messages_details.png}
         \vspace{1cm}
         \captionsetup{justification=centering}
-        \caption{Conversation avec utilisateur.}
+        \caption{Conversation avec l'utilisateur.}
         \label{fig:conversation}
     \end{figure}
 \end{multicols}
@@ -274,7 +274,7 @@ Une fois l'utilisateur a appuié sur le bouton pour contacter le chauffeur par m
 La documentation des APIs est une étape nécessaire dans le développement de n'importe quelle application. Une documentation accessible et facilement exploitable est une condition préalable au développement des API. Il est important d'avoir une documentation toujours à jour quand le code/les fonctionnalités de l'API évoluent.\\
 \noindent Et puisque le modèle de développement chez SPN est centré sur le travail collaboratif, il est très important d'avoir une documentation claire et et facile à exploiter des APIs.
 
-On va prendre un exemple de documentation de l'API de l'entitée <<Voiture>> où on a suivi les spécification de Open Api pour créer la documentation de ses APIs.
+On va prendre un exemple de documentation de l'API de l'entitée <<Voiture>> où on a suivi les spécifications de Open Api pour créer la documentation de ses APIs.
 \begin{figure}[H]
     \centering
     \includegraphics[height= \textheight]{openapi.png}
