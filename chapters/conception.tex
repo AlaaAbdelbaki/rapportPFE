@@ -1,7 +1,7 @@
 \chapter{Conception du projet}
 \minitoc
 \clearpage
-\section*{Introduction}
+\section{Introduction}
 Afin de créer une application respectant les besoins définis dans le cahier de charges, il faut d'abord passer par l'étape de conception. Cette étape permettra de décortiquer le cahier de charges et définir les acteurs, les cas d'utilisation, et finalement les différentes classes qui définissent les différents attributs de chaque entité qui interagit avec l'application.
 \section{Spécification des besoins}
 La première étape de la conception est de dégager les différents besoins de l'utilisateur. Ces besoins sont divisés en deux catégories: fonctionnels et non fonctionnels.
@@ -40,8 +40,82 @@ L'application SPN-Cars a un seul acteur qui est l'utilisateur, ce dernier utilis
     \caption{Diagramme de cas d'utilisation généralisé}
     \label{fig:use_case_diag}
 \end{figure}
-\subsubsection{Gérer profil}
-L'utilisateur peut gérer son profil : Il peut changer sa photo de profil et ses informations personnelles.\\
+\subsection{Création de compte}
+Avant d'utiliser les services offerts par l'application par l'application SPN Cars, l'utilisateur doit créer un compte.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth} {
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X |}
+            \hline
+            Cas d'utilisation  & Scénario optimal        & Scénario d'exception                                                          \\
+            \hline
+            Création de compte & Compte créé avec succés & Compte non créé suite à une erreur : Email déjà utilisé / Serveur hors ligne. \\
+            \hline
+        \end{tabularx}
+        \captionsetup{justification=centering}
+        \caption{Scénario d'utilisation : Création de compte}
+        \label{tab:register_scenario}
+    \end{center}
+\end{table}
+\vspace{1cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{uml/register_use_case.png}
+    \captionsetup{justification = centering}
+    \caption{Diagramme de cas d'utilisation spécifique: Création de compte.}
+    \label{fig:register_use_case}
+\end{figure}
+\subsection{Authentification}
+Pour accéder aux différents services de l'application SPN-Cars, l'utilisateur doit s'authentifier. Cette étape consiste à vérifier les information de l'utilisateur dans la base de données.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth} {
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X |}
+            \hline
+            Cas d'utilisation & Scénario optimal                                                      & Scénario d'exception                                                                                                                                     \\
+            \hline
+            Authentification  & Authentification réussie et un token d'authentification est retourné. & Retour d'un erreur : Coordonnées incorrectes / méthode de connexion incorrecte (Ex:Utilisation email et mot de passe au lieu du bouton Google ou Apple). \\
+            \hline
+        \end{tabularx}
+        \captionsetup{justification=centering}
+        \caption{Scénario d'utilisation : Authentification}
+        \label{tab:login_scenario}
+    \end{center}
+\end{table}
+\vspace{1cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{uml/login_use_case.png}
+    \vspace{1cm}
+    \captionsetup{justification=centering}
+    \caption{Diagramme de cas d'utilisation spécifique: Authentification.}
+    \label{fig:use_case_login}
+\end{figure}
+\subsection{Gérer profil}
+L'utilisateur peut gérer son profil : Il peut changer sa photo de profil et ses informations personnelles.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth} {
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X |}
+            \hline
+            Cas d'utilisation                     & Scénario optimal                  & Scénario d'exception                                             \\
+            \hline
+            Changement de photo de profil         & Photo ajoutée avec succés         & Photo non ajoutés : Connexion au serveur échouée.                \\
+            \hline
+            Changer les informations personnelles & Informations changées avec succés & Informations non changées: Erreur de connexion vers le serveur . \\
+            \hline
+        \end{tabularx}
+        \captionsetup{justification=centering}
+        \caption{Scénario d'utilisation : Création de compte}
+        \label{tab:profile_update_scenario}
+    \end{center}
+\end{table}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{uml/profile_use_case.png}
@@ -52,6 +126,27 @@ L'utilisateur peut gérer son profil : Il peut changer sa photo de profil et ses
 \end{figure}
 \subsection{Créer réservation}
 Pour créer sa réservation, l'utilisateur doit louer une voiture, effectuer un paiement et signer le contrat numérique de location.\\
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth} {
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X |}
+            \hline
+            Cas d'utilisation  & Scénario optimal               & Scénario d'exception                                                         \\
+            \hline
+            Louer une voiture  & Voiture louée avec succés.     & Voiture non louée : Voiture non disponible / Erreur de connexion.            \\
+            \hline
+            Effectuer paiement & Paiement effectué avec succés. & Paiement non effectué : Solde insuffisant, Service de paiement indisponible. \\
+            \hline
+            Signer contrat     & Contrat signé avec succés.     & Contrat non signé par l'utilisateur.                                         \\
+            \hline
+        \end{tabularx}
+        \captionsetup{justification=centering}
+        \caption{Scénario d'utilisation : Créer une réservation}
+        \label{tab:reservation_scenario}
+    \end{center}
+\end{table}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{uml/reservation_use_case.png}
@@ -62,6 +157,25 @@ Pour créer sa réservation, l'utilisateur doit louer une voiture, effectuer un 
 \end{figure}
 \subsection{Gérer réservation}
 L'utilisateur peut gérer sa réservation, il peut suivre la position de la voiture louée en temps réel, et il peut aussi annuler sa réservation.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth} {
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X |}
+            \hline
+            Cas d'utilisation   & Scénario optimal                 & Scénario d'exception                                                            \\
+            \hline
+            Suivi véhicules     & Véhicule suivie.                 & Véhicule non suivie : Signal GPS faible / problème de connexion avec chauffeur. \\
+            \hline
+            Annuler réservation & Réservation annulée avec succés. & Réservation non trouvée / Problème de connexion avec le serveur.                \\
+            \hline
+        \end{tabularx}
+        \captionsetup{justification=centering}
+        \caption{Scénario d'utilisation : Gérer une réservation}
+        \label{tab:manage_reservation_scenario}
+    \end{center}
+\end{table}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{uml/manage_res_use_case.png}
@@ -267,150 +381,5 @@ Avant de passer au développement de l'application, il faut créer d'abord les p
     \caption{\centering Messagerie instantanée avec le chauffeur.}
     \label{fig:dms}
 \end{figure}
-\section{Technologies et outils utilisés}
-Comme cette application sera une application mobile, il est nécessaire que la performance soit la priorité lors du développement. C'est pourquoi on a choisi les technologies suivantes pour offrir une application rapide, performante, facile à utiliser.\\
-\noindent Ses différentes technologies sont classifiées dans trois domaines principalement : Conception des interfaces graphiques, développement de l'application, et développement du back-end de l'application.\\
-\subsection{Flutter}
-\vspace{1cm}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\textwidth]{flutter.png}
-    \vspace{1cm}
-    \captionsetup{justification=centering}
-
-    \caption{Logo Flutter}
-    \label{fig:flutter_logo}
-\end{figure}
-\textit{\textbf{Flutter}} \cite{flutter} est un kit de développement (SDK) open-source créé par Google et publié en 2017.\\
-\noindent Flutter permet de créer des applications mobiles (Android / iOS), web et même desktop (Windows / Linux / MacOS), avec une seule base de code en Dart, un langage de programmation développé aussi par Google. \\
-\noindent Flutter présente plusieurs avantages qui permettent de créer des applications mobiles performantes et réduit aussi le coût et le temps de développement nécessaires, grâce au langage de programmation utilisé \textit{\textbf{Dart}} qui est très facile à maîtriser et qui offre plusieurs avantages, dont le plus important la fonctionnalité de <<\textit{\textbf{Hot Reload}}>> qui permet de recharger l'application et afficher les changements sur l'écran sans passer par la recompilation du code source.
-\subsection{Express JS}
-\vspace{1cm}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\textwidth]{express.png}
-    \vspace{1cm}
-    \captionsetup{justification=centering}
-    \caption{Logo Express}
-    \label{fig:express_logo}
-\end{figure}
-\textit{\textbf{Express JS}} \cite{expressjs} est un framework backend gratuit et open-source pour NodeJS. Créée par TJ Holowaychuk, la première version publique d'Express JS a été introduite au public en 2010.\\
-Express JS est un framework minimaliste, très léger pour garantir une performance optimale et une exécution rapide. Ce framework est aussi très flexible, même s'il fournit que quelques fonctionnalités, grâce à \textit{\textbf{NPM}}, le gestionnaire de paquets de NodeJS, il peut être complété par plusieurs librairies disponibles.\\
-\noindent Grâce à son minimalisme et facilité d'implémentation, ExpressJS est utilisé par plusieurs par nombreuses sociétés dans le monde, pour développer tout type d'applications, parmi ses sociétés il y a des géants de technologies tels que \textit{\textbf{IBM}}, \textit{\textbf{Uber}}, et plusieurs autres.
-\subsection{JSON Web Token (JWT)}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\textwidth]{jwt.png}
-    \vspace{1cm}
-    \captionsetup{justification=centering}
-    \caption{Logo JWT}
-    \label{fig:jwt_logo}
-\end{figure}
-\textbf{\textit{Josn Web Token}} ou tout simplement connu comme "JWT" est un standard créé en 2015, qui permet d'encapsuler des données dans des jetons et les échanger entre plusieurs parties en toute sécurité.
-
-Un jeton est composé principalement de trois parties :
-\begin{itemize}
-    \item Un en-tête qui décrit le jeton en format JSON.
-    \item Le contenu de ce jeton qui est également en format JSON.
-    \item Une signature numérique.
-\end{itemize}
-\subsection{MongoDB}
-\vspace{1cm}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\textwidth]{mongo.png}
-    \vspace{1cm}
-    \captionsetup{justification=centering}
-
-    \caption{Logo MongoDB}
-    \label{fig:mongo_logo}
-\end{figure}
-\textit{\textbf{MongoDB}} \cite{mongodb} , est un système de gestion de base de données NoSQL, orientée documents. Une base de données NoSQL est utilisée pour le stockage de volumes massifs de données, elle se distingue des des bases de données relationnelles par sa flexibilité et ses performances.\\
-\noindent Le système MongoDB est développé par la société qui porte le même nom en 2007. Cette entreprise travaillait sur un système de cloud computing à données largement réparties.\\
-\noindent Il est depuis devenu l'un des systèmes de gestion de base de données les plus utilisés, notamment pour des sites web très populaires tels que : \textit{\textbf{SourseForge.net}}, \textit{\textbf{eBay}} et \textit{\textbf{The New York Times}}.\\
-\noindent Contrairement à une base de données relationnelle SQL traditionnelle, MongoDB ne repose pas sur des tableaux et des colonnes. Les données sont stockées sous forme de collections et de documents.
-Les documents sont des paires de valeurs / clés servant d'unité de données de base. Les collections quant à elles contiennent des ensembles de documents et de fonctions. Elles sont l'équivalent des tableaux dans les bases de données relationnelles classiques.
-\subsection{Firebase}
-\vspace{1cm}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\textwidth]{firebase.png}
-    \vspace{1cm}
-    \captionsetup{justification=centering}
-
-    \caption{Logo Firebase}
-    \label{fig:firebase_logo}
-\end{figure}
-\textit{\textbf{Firebase}} \cite{firebase} est une plateforme créée en 2011, puis acquise et développée par Google en 2014. Firebase facilite la création de back-end à la fois scalable et performant.\\
-\noindent L'objectif de firebase est d'offrir aux professionnels et aux particuliers un moyen d'éviter l'engagement dans un processus complexe de création et de maintenance d'une architecture serveur.\\
-\noindent Firebase offre des API intuitives regroupées dans un SDK unique. Ces API permettent de gagner du temps et de réduire le nombre d'intégrations qu'on doit gérer dans l'application.\\
-\noindent Firebase offre plusieurs services que tout le monde peut utiliser gratuitement grâce à sa politique <<pay as you go>> qui nécessite le paiement de ses services seulement si l'utilisation des ressources dépasse le quota du plan gratuit offert. Les services de Firebase les plus utilisés sont :
-\begin{itemize}
-    \item \textbf{Firestore}:\\ Une base de données NoSQL, bénéficiant d'un hébergement cloud et permettant le stockage et la synchronisation de données des utilisateurs.
-    \item \textbf{Firebase Authentification}:\\ Un SDK prêt et facile à exploiter qui permet d'authentifier les utilisateurs en offrant plusieurs méthodes d'authentification tels que Google, Apple, Facebook, Email et mot de passe, numéro de téléphone et plusieurs d'autres méthodes pour assurer l'authentification de l'utilisateur.
-    \item \textbf{Firebase Cloud Messaging}:\\ Permet de connecter plusieurs périphériques au serveur dans les meilleures conditions (fiabilité et économie de batterie). Ce service permet de recevoir et envoyer des notification sur les différentes plateformes (Web / iOS / Android). Avec Firebase Cloud Messaging, il est possible aussi d'assurer un service de messagerie instantanée entre les utilisateurs.
-\end{itemize}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\textwidth]{git.png}
-    \vspace{1cm}
-    \captionsetup{justification=centering}
-    \caption{Logo Git}
-    \label{fig:git_logo}
-\end{figure}
-\subsection{Visual Studio Code}
-\textit{\textbf{Visual Studio Code}} \cite{vscode} est un éditeur de texte open-source développé par Microsoft \cite{microsoft} pour Windows MacOS et Linux en 2015. Riche en fonctionnalités tels que le support de déboguage, complétion intelligente du code, intégration de système de contrôle de version Git,et la capabilité d'installation d'extensions qui permettent d'améliorer l'expérience de l'utilisateur, Visual Studio Code est devenu l'un des premier choix pour plusieurs développeurs pour travailler sur leurs différents projets.
-\subsection{Postman}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\textwidth]{postman.png}
-    \vspace{1cm}
-    \captionsetup{justification=centering}
-    \caption{Logo Postman.}
-    \label{fig:postman_logo}
-\end{figure}
-\textit{\textbf{Postman}} \cite{postman} est une plateforme permettant de concevoir, développer, et tester des API. Créé en 2012 comme une extension pour Google Chrome, Postman a gagné une grande popularité, qui lui a permis de migrer vers une application pour Windows MacOS, et Linux. Postman est maintenant le premier choix pour la plupart des développeurs, avec plus de 20 millions d'utilisateurs \cite{postman_users}.
-\subsection{Adobe Xd}
-\vspace{1cm}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\textwidth]{xd_logo.png}
-    \vspace{1cm}
-    \captionsetup{justification=centering}
-
-    \caption{Logo Adobe Xd}
-    \label{fig:xd_logo}
-\end{figure}
-\textit{\textbf{Adobe Xd}} \cite{adobe_xd} est un outil de conception et modélisation des interfaces utilisateur des applications web et mobiles, développé par Adobe Inc.\\
-\noindent Grâce aux outils fournis par Adobe Xd, la conception, l'amélioration et la rectification des interfaces graphiques et l'expérience de l'utilisateur de l'application sera plus facile, plus rapide et plus efficace.
-\noindent Dans le cadre de ce projet, Adobe Xd a été utilisé pour la création des prototypes des interfaces graphiques, qui seront, par la suite, construits en application mobile à l'aide de Flutter.
-\subsection{Git}
-\vspace{1cm}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\textwidth]{vscode.png}
-    \vspace{1cm}
-    \captionsetup{justification=centering}
-
-    \caption{Logo Visual Studio Code.}
-    \label{fig:vscode_logo}
-\end{figure}
-\textit{\textbf{Git}} \cite{git} est un système de contrôle de version open-source créé en 2005 par \textit{\textbf{Linus Torvalds}}, le créateur du noyau du système d'exploitation Linux.\\
-\noindent Git permet de gérer les ajouts et changements apportés au code source de manière tracée. Ainsi, si une erreur est commise, les développeurs peuvent revenir en arrière et comparer les versions antérieures du code, ce qui leur permet de corriger l'erreur tout en minimisant les perturbations pour tous les membres de l'équipe.
-\subsection{Swagger}
-\vspace{1cm}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\textwidth]{swagger.png}
-    \vspace{1cm}
-    \captionsetup{justification=centering}
-
-    \caption{Logo Swagger}
-    \label{fig:swagger_logo}
-\end{figure}
-\textit{\textbf{Swagger}} \cite{swagger} est un langage permettant de créer une description des API Restful à l'aide de JSON. A l'aide de ses outils Open-Source, Swagger permet de concevoir, créer et décrire des API REST.\\
-\noindent Swagger a été créé en 2011 par Tony Tam, cofondateur du site de dictionnaires Wordnik, suite à un besoin d'automatisation de documentation de l'API qui est devenue de plus en plus frustrante. Juste après sa création, le projet Swagger est devenu open-source en septembre 2011.\\
-\noindent Swagger est maintenant maintenu par la société \textit{\textbf{SmartBear Software}} qui, en novembre 2015, de créer une organisation appelée \textit{\textbf{OpenAPI initiative}} dont diverses entreprises tels que Google, IBM et Microsoft sont les membres fondateurs.\\
-\section*{Conclusion}
-A travers ce chapitre, on a établi la conception de l'application SPN-Cars: On a dégager les besoins fonctionnels et non fonctionnels, qui, à travers eux on a pu créer les diagrammes de cas d'utilisation, les diagrammes de classes, et les diagrammes de séquences. Suite au développement de ces diagrammes, on est passé vers l'étape de conception des interfaces utilisateur. Toutes ces différentes étapes ont permis de choisir les technologies et outils qui seront utilisés pour la création de cette application.\\
-Une fois les différents aspects de l'application sont bien définis, on passera vers la phase de réalisation où on appliquera les diagrammes et interfaces développés dans ce chapitre pour produire cette application.
+\section{Conclusion}
+A travers ce chapitre, on a établi la conception de l'application SPN-Cars: On a dégager les besoins fonctionnels et non fonctionnels, qui, à travers eux on a pu créer les diagrammes de cas d'utilisation, les diagrammes de classes, et les diagrammes de séquences. Suite au développement de ces diagrammes, on est passé vers l'étape de conception des interfaces utilisateur. Toutes ces différentes étapes permettront de choisir les technologies et outils qui seront utilisés pour la création de cette application, qui seront présentés dans le prochain chapitre.

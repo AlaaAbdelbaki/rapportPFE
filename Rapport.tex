@@ -23,6 +23,7 @@
 \usepackage[sorting=none]{biblatex}
 \usepackage{tabularx}
 
+\captionsetup[table]{position=bottom}
 \addbibresource{bibliography.bib}
 
 
@@ -61,6 +62,7 @@
 ] % after-code
 
 \usepackage[french]{babel}
+\renewcommand{\mtctitle}{Contenu}
 \begin{document}
 % Title page
 % \input{chapters/page_de_garde.tex}
@@ -85,8 +87,10 @@
 \thispagestyle{empty}
 \listoffigures
 \addtocontents{lof}{\protect\thispagestyle{empty}}
-
-\newpage
+\clearpage
+\listoftables
+\addtocontents{lot}{\protect\thispagestyle{empty}}
+\clearpage
 % Introduction
 \input{chapters/introduction.tex}
 \newpage
@@ -96,8 +100,11 @@
 % \newpage
 % \input{chapters/besoins.tex}
 % Conception
-\newpage
+\clearpage
 \input{chapters/conception.tex}
+\clearpage
+% Technologies
+\input{chapters/technologies.tex}
 % Réalisation de l'application
 \clearpage
 \input{chapters/realisation.tex}
