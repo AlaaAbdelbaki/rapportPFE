@@ -15,14 +15,14 @@
 {\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Sécurité}{\reset@font\mtcSSSfont 15}{subsection.2.2.2}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Diagrammes UML}{\reset@font\mtcSfont 15}{section.2.3}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.1}Diagramme de cas d'utilisation}{\reset@font\mtcSSfont 15}{subsection.2.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.2}Création de compte}{\reset@font\mtcSSfont 16}{subsection.2.3.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.3}Authentification}{\reset@font\mtcSSfont 17}{subsection.2.3.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.4}Gérer profil}{\reset@font\mtcSSfont 18}{subsection.2.3.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.5}Créer réservation}{\reset@font\mtcSSfont 19}{subsection.2.3.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.6}Gérer réservation}{\reset@font\mtcSSfont 20}{subsection.2.3.6}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.7}Diagramme de classes}{\reset@font\mtcSSfont 22}{subsection.2.3.7}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.8}Diagrammes de séquences}{\reset@font\mtcSSfont 23}{subsection.2.3.8}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Création de compte}{\reset@font\mtcSSSfont 23}{subsection.2.3.8}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Création de compte}{\reset@font\mtcSSSfont 16}{figure.caption.15}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Authentification}{\reset@font\mtcSSSfont 17}{figure.caption.17}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Gérer profil}{\reset@font\mtcSSSfont 18}{figure.caption.19}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Créer réservation}{\reset@font\mtcSSSfont 19}{figure.caption.21}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Gérer réservation}{\reset@font\mtcSSSfont 20}{figure.caption.23}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.2}Diagramme de classes}{\reset@font\mtcSSfont 22}{subsection.2.3.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.3}Diagrammes de séquences}{\reset@font\mtcSSfont 23}{subsection.2.3.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Création de compte}{\reset@font\mtcSSSfont 23}{subsection.2.3.3}}
 {\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Authentification}{\reset@font\mtcSSSfont 25}{figure.caption.28}}
 {\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Page d'accueil}{\reset@font\mtcSSSfont 26}{figure.caption.29}}
 {\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Demander un service}{\reset@font\mtcSSSfont 27}{figure.caption.30}}

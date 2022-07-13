@@ -40,8 +40,9 @@ L'application SPN-Cars a un seul acteur qui est l'utilisateur, ce dernier utilis
     \caption{Diagramme de cas d'utilisation généralisé}
     \label{fig:use_case_diag}
 \end{figure}
-\subsection{Création de compte}
-Avant d'utiliser les services offerts par l'application par l'application SPN Cars, l'utilisateur doit créer un compte.
+\subsubsection{Création de compte}
+Toute utilisation des services offerts par l'application SPN-Cars nécessite la création d'un compte utilisateur. Ce compte peut être créé par deux manières : Email et mot de passe ou tout simplement par un click sur le bouton <<Sign in with Google>> ou <<Sign in with Apple>>.\\
+\noindent Lors de la création du compte une vérification de l'adresse e-mail est lancée pour confirmer la création du compte ou envoyer une erreur si l'adresse est déjà utilisée.
 \begin{table}[H]
     \begin{center}
         \begin{tabularx}{\textwidth} {
@@ -67,8 +68,8 @@ Avant d'utiliser les services offerts par l'application par l'application SPN Ca
     \caption{Diagramme de cas d'utilisation spécifique: Création de compte.}
     \label{fig:register_use_case}
 \end{figure}
-\subsection{Authentification}
-Pour accéder aux différents services de l'application SPN-Cars, l'utilisateur doit s'authentifier. Cette étape consiste à vérifier les information de l'utilisateur dans la base de données.
+\subsubsection{Authentification}
+Pour accéder aux différents services de l'application SPN-Cars, l'utilisateur doit s'authentifier. Cette étape consiste à vérifier les information de l'utilisateur dans la base de données. Si les informations envoyées sont correctes, un token d'authentification est retourné qui sera utilisé avec les prochaines requêtes envoyées vers le serveur. Sinon un message d'erreur est retourné à l'utilisateur.
 \begin{table}[H]
     \begin{center}
         \begin{tabularx}{\textwidth} {
@@ -76,9 +77,9 @@ Pour accéder aux différents services de l'application SPN-Cars, l'utilisateur 
                 | >{\centering\arraybackslash}X
                 | >{\centering\arraybackslash}X |}
             \hline
-            Cas d'utilisation & Scénario optimal                                                      & Scénario d'exception                                                                                                                                     \\
+            Cas d'utilisation & Scénario optimal                                                      & Scénario d'exception                                                                                                                                                                       \\
             \hline
-            Authentification  & Authentification réussie et un token d'authentification est retourné. & Retour d'un erreur : Coordonnées incorrectes / méthode de connexion incorrecte (Ex:Utilisation email et mot de passe au lieu du bouton Google ou Apple). \\
+            Authentification  & Authentification réussie et un token d'authentification est retourné. & Retour d'un erreur : Compte utilisateur non vérifié. / Coordonnées incorrectes / méthode de connexion incorrecte (Ex:Utilisation email et mot de passe au lieu du bouton Google ou Apple). \\
             \hline
         \end{tabularx}
         \captionsetup{justification=centering}
@@ -95,8 +96,8 @@ Pour accéder aux différents services de l'application SPN-Cars, l'utilisateur 
     \caption{Diagramme de cas d'utilisation spécifique: Authentification.}
     \label{fig:use_case_login}
 \end{figure}
-\subsection{Gérer profil}
-L'utilisateur peut gérer son profil : Il peut changer sa photo de profil et ses informations personnelles.
+\subsubsection{Gérer profil}
+L'utilisateur peut gérer son profil : Il peut changer sa photo de profil et/ou ses informations personnelles. Ces informations aideront les chauffeurs à identifier cet utilisateur, pour le contacter facilement, s'il passera une réservation dans le futur.
 \begin{table}[H]
     \begin{center}
         \begin{tabularx}{\textwidth} {
@@ -124,8 +125,8 @@ L'utilisateur peut gérer son profil : Il peut changer sa photo de profil et ses
     \caption{Diagramme de cas d'utilisation spécifique: Gestion de profil.}
     \label{fig:use_case_manage_profile}
 \end{figure}
-\subsection{Créer réservation}
-Pour créer sa réservation, l'utilisateur doit louer une voiture, effectuer un paiement et signer le contrat numérique de location.\\
+\subsubsection{Créer réservation}
+Pour créer sa réservation, l'utilisateur doit choisir une voiture de la liste des voitures disponibles, la sélectionner pour la louer. Il sera redérigé vers l'interface de signature de contrat de location, une fois le contrat est signé correctement et validé, l'utilisateur passera vers l'étape de paiement en ligne, qui lui permettra de valider sa réservation.
 \begin{table}[H]
     \begin{center}
         \begin{tabularx}{\textwidth} {
@@ -155,8 +156,8 @@ Pour créer sa réservation, l'utilisateur doit louer une voiture, effectuer un 
     \caption{Diagramme de cas d'utilisation spécifique: Créer réservation.}
     \label{fig:use_case_create_res}
 \end{figure}
-\subsection{Gérer réservation}
-L'utilisateur peut gérer sa réservation, il peut suivre la position de la voiture louée en temps réel, et il peut aussi annuler sa réservation.
+\subsubsection{Gérer réservation}
+L'utilisateur peut gérer sa réservation : Il peut suivre la position de sa voiture, sa position initiale si elle est dans un parking, ou sa position en temps réel si elle est conduite par le chauffeur. L'utilisateur a le choix aussi d'annuler sa réservation s'il n'a plus besoin des services qu'il a achetés.
 \begin{table}[H]
     \begin{center}
         \begin{tabularx}{\textwidth} {
@@ -184,8 +185,6 @@ L'utilisateur peut gérer sa réservation, il peut suivre la position de la voit
     \caption{Diagramme de cas d'utilisation spécifique: Gérer réservation.}
     \label{fig:use_case_manage_res}
 \end{figure}
-
-
 \subsection{Diagramme de classes}
 \begin{figure}[H]
     \centering
