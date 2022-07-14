@@ -19,6 +19,31 @@ Comme cette application sera une application mobile, il est nécessaire que la p
 \textit{\textbf{Adobe Xd}} \cite{adobe_xd} est un outil de conception et modélisation des interfaces utilisateur des applications web et mobiles, développé par Adobe Inc.\\
 \noindent Grâce aux outils fournis par Adobe Xd, la conception, l'amélioration et la rectification des interfaces graphiques et l'expérience de l'utilisateur de l'application sera plus facile, plus rapide et plus efficace.
 \noindent Dans le cadre de ce projet, Adobe Xd a été utilisé pour la création des prototypes des interfaces graphiques, qui seront, par la suite, construits en application mobile à l'aide de Flutter.
+
+Adobe XD n'est pas le seul outil disponible pour créer des prototypes, et concevoir les différentes interfaces utilisateur, Figma\cite{figma} est aussi un outil de conception et prototypage, développé par Figma Inc. qui a sorti sa première version en 2016 en tant qu'une application web.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{| >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X
+                | >{\centering\arraybackslash}X |}
+            \hline
+                                   & Adobe XD                                                       & Figma                                                                   \\
+            \hline
+            Plateformes            & Application Web.                                               & Application Desktop et Mobile.                                          \\
+            \hline
+            Système d'exploitation & MacOS, Linux, Windows.                                         & MacOS, Windows, iOS, Android.                                           \\
+            \hline
+            Collaboration          & Collaboration en temps réel.                                   & Collaboration en temps réel pour les projets sauvegardés dans le cloud. \\
+            \hline
+            Plugins                & Une bibliothèque riche en plugins créés pars les utilisateurs. & Une bibliothèque riche en plugins créés pars les utilisateurs.          \\
+            \hline
+        \end{tabularx}
+        \captionsetup{justification=centering}
+        \caption{Tableau comparatif: Adobe XD et Figma}
+        \label{compare_adobexd_figme}
+    \end{center}
+\end{table}
+Vu qu'on est en train de concevoir une application mobile, il est indisponible de tester les interfaces sous des appareils mobiles rapidement pour pouvoir les améliorer et détecter les défauts rapidement. C'est pourquoi on a choisi dans ce cas Adobe XD, grâce à sa plateforme cloud <<Adobe Creative Cloud>> qui permet de synchroniser les documents et les rendre disponibles sur toutes les plateformes disponibles.
 \section{Développement de l'application mobile}
 \subsection{Flutter}
 \vspace{1cm}
@@ -35,7 +60,7 @@ Comme cette application sera une application mobile, il est nécessaire que la p
 \noindent Flutter permet de créer des applications mobiles (Android / iOS), web et même desktop (Windows / Linux / MacOS), avec une seule base de code en Dart, un langage de programmation développé aussi par Google. \\
 \noindent Flutter présente plusieurs avantages qui permettent de créer des applications mobiles performantes et réduit aussi le coût et le temps de développement nécessaires, grâce au langage de programmation utilisé \textit{\textbf{Dart}} qui est très facile à maîtriser et qui offre plusieurs avantages, dont le plus important la fonctionnalité de <<\textit{\textbf{Hot Reload}}>> qui permet de recharger l'application et afficher les changements sur l'écran sans passer par la recompilation du code source.
 
-Pour créer des applications mobiles crossplatform, Flutter n'est pas la seule technologie qui facilite le développement de ces applications. Il existe plusieurs autres alternatives dont on cite React Native qui permet aussi de créer une application mobile iOS et Android avec une seule base de code.
+Pour créer des applications mobiles crossplatform, Flutter n'est pas la seule technologie qui facilite le développement de ces applications. Il existe plusieurs autres alternatives dont on cite React Native\cite{react_native} qui permet aussi de créer une application mobile iOS et Android avec une seule base de code.
 \begin{table}[H]
     \begin{center}
         \begin{tabularx}{\textwidth} {
@@ -43,27 +68,17 @@ Pour créer des applications mobiles crossplatform, Flutter n'est pas la seule t
                 | >{\centering\arraybackslash}X
                 | >{\centering\arraybackslash}X |}
             \hline
-                          & Flutter                                 & React Native \\
+                                     & Flutter                         & React Native                                \\
             \hline
-            Avantages     & \begin{itemize}
-                                \item crossplatform.
-                                \item Créé et maintenu par Google.
-                                \item Applications fluides avec 60 FPS.
-                                \item Compilé vers code natif.
-                            \end{itemize} & \begin{itemize}
-                                                \item crossplatform.
-                                                \item Créé et maintenu par Facebook.
-                                                \item Utilise Javascript.
-                                                \item Composants UI Natives
-                                            \end{itemize}    \\
+            Créé par                 & Google.                         & Facebook.                                   \\
             \hline
-            Inconvénients & \begin{itemize}
-                                \item Besoin d'apprendre Dart.
-                                \item Documentation complexe.
-                            \end{itemize}          & \begin{itemize}
-                                                         \item Limité à 30 FPS.
-                                                         \item Application volumineuse.
-                                                     \end{itemize} \\
+            Langage de programmation & Dart.                           & Javascript.                                 \\
+            \hline
+            Hot Reload               & Oui.                            & Oui.                                        \\
+            \hline
+            Interfaces graphiques    & Utilise ses propres composants. & Utilise les composants natifs de chaque SE. \\
+            \hline
+            Taille de l'appplication & Plus petite que React Native    & Application volumineuse                     \\
             \hline
         \end{tabularx}
         \captionsetup{justification = centering}
@@ -71,7 +86,7 @@ Pour créer des applications mobiles crossplatform, Flutter n'est pas la seule t
         \label{compare_flutter_react_native}
     \end{center}
 \end{table}
-Comme le montre le tableau comparatif, Flutter présente plusieurs avantages en terme de fluidité et taile de l'application, ces deux avantages joueront un rôle très important avec l'expérience de l'utilisateur qui sera mieux avec une application Flutter qu'une application avec React Native.
+Comme le montre le tableau comparatif, Flutter a été le choix pour développer cette application grâce à sa capacité de créer des applications de petite taille qui sera toujours un avantage lors de son développement avec la liberté qu'il loffre lors de la création des composants de l'interface utilisateur qui permettra d'avoir des applications qui se rassemblent même s'ils sont sous différentes plateformes.
 
 
 \section{Développement du serveur back-end}
@@ -90,7 +105,7 @@ Express JS est un framework minimaliste, très léger pour garantir une performa
 \noindent Grâce à son minimalisme et facilité d'implémentation, ExpressJS est utilisé par plusieurs par nombreuses sociétés dans le monde, pour développer tout type d'applications, parmi ses sociétés il y a des géants de technologies tels que \textit{\textbf{IBM}}, \textit{\textbf{Uber}}, et plusieurs autres.
 
 
-Il existe plusieurs alternatives d'ExpressJS, l'un de ses alternatives est Spring Boot, le framework web de Java qui est aussi utilisé dans plusieurs projets.
+Spring Boot \cite{spring}, une extension du framework Spring, sorti en Avril 2014, est vu comme une alternative d' Express JS grâce à plusieurs avantages comme le montre le tableau suivant.
 \begin{table}[H]
     \begin{center}
         \begin{tabularx}{\textwidth} {
@@ -98,23 +113,15 @@ Il existe plusieurs alternatives d'ExpressJS, l'un de ses alternatives est Sprin
                 | >{\centering\arraybackslash}X
                 | >{\centering\arraybackslash}X |}
             \hline
-                          & ExpressJS                                                      & Spring Boot \\
+                                    & ExpressJS        & Spring Boot                 \\
             \hline
-            Avantages     & \begin{itemize}
-                                \item Utilise Javascript.
-                                \item Fonctionne sous NodeJS qui est très minimaliste.
-                            \end{itemize}         & \begin{itemize}
-                                                        \item Utilise le Multithreading.
-                                                        \item Utilise Java.
-                                                    \end{itemize}                      \\
+            Utilisation de mémoire  & Faible.          & Élevée.                     \\
             \hline
-            Inconvénients & \begin{itemize}
-                                \item N'utilise pas le Multithreading.
-                                \item Ne contient pas de vérification de type avec Javascript.
-                            \end{itemize} & \begin{itemize}
-                                                \item Grande consommation de mémoire.
-                                                \item Un fichier de déploiement de grande taille.
-                                            \end{itemize}             \\
+            Multithreading          & Non              & Oui                         \\
+            \hline
+            Opérations Input/Output & Rapide           & Lent                        \\
+            \hline
+            Structure de projet     & Simple et léger. & Code complexe et modulaire. \\
             \hline
         \end{tabularx}
         \captionsetup{justification = centering}
@@ -138,7 +145,8 @@ Comme la rapidité est l'un des objectifs de cette application, le temps de rép
 \noindent Le système MongoDB est développé par la société qui porte le même nom en 2007. Cette entreprise travaillait sur un système de cloud computing à données largement réparties.\\
 \noindent Il est depuis devenu l'un des systèmes de gestion de base de données les plus utilisés, notamment pour des sites web très populaires tels que : \textit{\textbf{SourseForge.net}}, \textit{\textbf{eBay}} et \textit{\textbf{The New York Times}}.\\
 \noindent Contrairement à une base de données relationnelle SQL traditionnelle, MongoDB ne repose pas sur des tableaux et des colonnes. Les données sont stockées sous forme de collections et de documents.
-Les documents sont des paires de valeurs / clés servant d'unité de données de base. Les collections quant à elles contiennent des ensembles de documents et de fonctions. Elles sont l'équivalent des tableaux dans les bases de données relationnelles classiques.
+Les documents sont des paires de valeurs / clés servant d'unité de données de base. Les collections quant à elles contiennent des ensembles de documents et de fonctions. Elles sont l'équivalent des tableaux dans les bases de données relationnelles classiques.\\
+\noindent On peut aussi utiliser MySQL\cite{mysql} qui est un Système de Gestion de Bases de Données créé par Oracle en 1995, qui est pour plusieurs, la solution idéale pour gérer leurs données.
 \begin{table}[H]
     \begin{center}
         \begin{tabularx}{\textwidth} {
@@ -146,23 +154,13 @@ Les documents sont des paires de valeurs / clés servant d'unité de données de
                 | >{\centering\arraybackslash}X
                 | >{\centering\arraybackslash}X |}
             \hline
-                          & MongoDB                                            & MySQL            \\
+                                    & MongoDB                            & MySQL                           \\
             \hline
-            Avantages     & \begin{itemize}
-                                \item N'a pas besoin d'un modèle d'entitée.
-                                \item Sauvegarde ses documents sous forme de JSON.
-                            \end{itemize} & \begin{itemize}
-                                                \item Plus utilisé.
-                                                \item Haute disponibilité.
-                                            \end{itemize}                     \\
+            Type de base de données & Base de données non relationnelle  & Base de données relationnelles  \\
             \hline
-            Inconvénients & \begin{itemize}
-                                \item Plus lent si on utilise des jointures.
-                                \item Utilise son propre langage de requêtes.
-                            \end{itemize}      & \begin{itemize}
-                                                     \item Risque de sécurité avec les injections SQL.
-                                                     \item On ne peut pas changer les modèles.
-                                                 \end{itemize} \\
+            Données structurées     & Non.                               & Oui                             \\
+            \hline
+            Design                  & Base sur le concept des documents. & Basé sur le concept des Tables. \\
             \hline
         \end{tabularx}
         \captionsetup{justification = centering}
@@ -212,6 +210,29 @@ Un jeton est composé principalement de trois parties :
     \item \textbf{Firebase Authentification}:\\ Un SDK prêt et facile à exploiter qui permet d'authentifier les utilisateurs en offrant plusieurs méthodes d'authentification tels que Google, Apple, Facebook, Email et mot de passe, numéro de téléphone et plusieurs d'autres méthodes pour assurer l'authentification de l'utilisateur.
     \item \textbf{Firebase Cloud Messaging}:\\ Permet de connecter plusieurs périphériques au serveur dans les meilleures conditions (fiabilité et économie de batterie). Ce service permet de recevoir et envoyer des notification sur les différentes plateformes (Web / iOS / Android). Avec Firebase Cloud Messaging, il est possible aussi d'assurer un service de messagerie instantanée entre les utilisateurs.
 \end{itemize}
+Dans ce projet, Firebase sera utilisé pour envoyer des notifications push vers les utilisateurs, mais ces service est aussi offert par OneSignal\cite{onesignal} qui est une solution qui offre les services d'envoi de notifications push, envoi de messages SMS et envoi d'emails.
+\begin{table}[H]
+    \begin{tabularx}{\textwidth} {
+            | >{\centering\arraybackslash}X
+            | >{\centering\arraybackslash}X
+            | >{\centering\arraybackslash}X |}
+        \hline
+                                & Firebase                                                                          & OneSignal                                                                       \\
+        \hline
+        Open-Source             & Non                                                                               & Non                                                                             \\
+        \hline
+        Prix                    & Plan Gratuit trop limité, il est nécessaire d'acheter le pack "Growth" à \$9/mois & Gratuit, payer suivant la consommation après dépassement de seuil d'utilisation \\
+        \hline
+        Disponibilité           & 99.95\%                                                                           & 99.95\%                                                                         \\
+        \hline
+        Disponible pour Flutter & Oui                                                                               & Oui                                                                             \\
+        \hline
+    \end{tabularx}
+    \captionsetup{justification=centering}
+    \caption{Tableau comparatif: Firebase et OneSignal}
+    \label{tab:compare_firebase_onesig}
+\end{table}
+Même si Firebase et OneSignl offrent les mêmes services, Firebase, grâce à sa flexibilité de calcul de frais de service en suivant le modèle <<Pay as you go>> réduit le coût de développement, ce qui rend Firebase le choix optimal pour envoyer des notifications vers les différents utilisateurs.
 \subsection{Swagger}
 \vspace{1cm}
 \begin{figure}[H]
@@ -238,7 +259,7 @@ Un jeton est composé principalement de trois parties :
 \end{figure}
 \textit{\textbf{Visual Studio Code}} \cite{vscode} est un éditeur de texte open-source développé par Microsoft \cite{microsoft} pour Windows MacOS et Linux en 2015. Riche en fonctionnalités tels que le support de déboguage, complétion intelligente du code, intégration de système de contrôle de version Git,et la capabilité d'installation d'extensions qui permettent d'améliorer l'expérience de l'utilisateur, Visual Studio Code est devenu l'un des premier choix pour plusieurs développeurs pour travailler sur leurs différents projets.
 
-Pour développer des application mobiles avec Flutter, on peut utilisier Visual Studio Code ou Android Studio. Ces deux éditeurs offrent chacun des avantages et des inconvénients qu'on va les présenter dans le tableau suivant.
+Pour développer des application mobiles avec Flutter, on peut utilisier Visual Studio Code ou Android Studio. Android Stduio qui est l'IDE utilisé pour développer des applications natives sous Android, qui est maintenant utilisé aussi pour développer les applications Flutter.
 \begin{table}[H]
     \begin{center}
         \begin{tabularx}{\textwidth} {
@@ -246,25 +267,13 @@ Pour développer des application mobiles avec Flutter, on peut utilisier Visual 
                 | >{\centering\arraybackslash}X
                 | >{\centering\arraybackslash}X |}
             \hline
-                          & Visual Studio Code                                                                                       & Android Studio \\
+                        & Visual Studio Code                                              & Android Studio                                                  \\
             \hline
-            Avantages     & \begin{itemize}
-                                \item Démarrage rapide.
-                                \item Intégration du terminal.
-                                \item Une sélection de extensions ajoutés par les utilisateurs qui améliorent l'expérience utilisateurs.
-                            \end{itemize} & \begin{itemize}
-                                                \item Puissant et robuste.
-                                                \item Editeur officiel pour les applications Android.
-                                                \item Intégration des émulateurs Android.
-                                            \end{itemize}                   \\
+            Taille      & Léger                                                           & Grande taille                                                   \\
             \hline
-            Inconvénients & \begin{itemize}
-                                \item Il faut installer des extensions pour améliorer l'expérience.
-                                \item Lenteur avec plusieurs fichiers ouverts à la fois.
-                            \end{itemize}                                      & \begin{itemize}
-                                                                                     \item Cosommation énorme de ressources.
-                                                                                     \item Complexe pour les débutants.
-                                                                                 \end{itemize}                               \\
+            Plugins     & Un store en ligne riche en plugins créés par les untilisateurs. & Un store en ligne riche en plugins créés par les untilisateurs. \\
+            \hline
+            Performance & Rapide et performant même sur une configuration faible.         & Nécessite une bonne configuration pour fonctionner fluidement   \\
             \hline
         \end{tabularx}
         \captionsetup{justification = centering}
@@ -283,37 +292,27 @@ Suite à cette comparaison, on a choisi Visual Studio Code grâce aux avantages 
     \label{fig:postman_logo}
 \end{figure}
 \textit{\textbf{Postman}} \cite{postman} est une plateforme permettant de concevoir, développer, et tester des API. Créé en 2012 comme une extension pour Google Chrome, Postman a gagné une grande popularité, qui lui a permis de migrer vers une application pour Windows MacOS, et Linux. Postman est maintenant le premier choix pour la plupart des développeurs, avec plus de 20 millions d'utilisateurs \cite{postman_users}.
+Comme Postman, Insomnia REST Client\cite{insomnia} est aussi une plateforme qui permet d'effectuer des tâches similaires à Postman.
 \begin{table}[H]
-    \begin{center}
-        \begin{tabularx}{\textwidth} {
-                | >{\centering\arraybackslash}X
-                | >{\centering\arraybackslash}X
-                | >{\centering\arraybackslash}X |}
-            \hline
-                          & Postman                                                   & Insomnia REST Client       \\
-            \hline
-            Avantages     & \begin{itemize}
-                                \item Simple à utiliser.
-                                \item Sauvegarde de l'historique des requêtes.
-                                \item Travail collaboratif.
-                            \end{itemize}            & \begin{itemize}
-                                                           \item Interface utilisateur simple.
-                                                           \item Open Source.
-                                                           \item Cross platform : Disponble sous Windows MacOS et Linux
-                                                       \end{itemize} \\
-            \hline
-            Inconvénients & \begin{itemize}
-                                \item Gratuit pour les équipes mois de 5 membres.
-                                \item Plusieurs fonctionnalités qui sont parfois ambigus.
-                            \end{itemize} & \begin{itemize}
-                                                \item Pas de collaboration en équipe.
-                                            \end{itemize}                               \\
-            \hline
-        \end{tabularx}
-        \captionsetup{justification = centering}
-        \caption{Tableau comparatif : Postman et Insomnia REST Client}
-        \label{compare_postman_insomnia}
-    \end{center}
+    \begin{tabularx}{\textwidth} {
+            | >{\centering\arraybackslash}X
+            | >{\centering\arraybackslash}X
+            | >{\centering\arraybackslash}X |}
+        \hline
+                                              & Postman                                                            & Insomnia Rest Client            \\
+        \hline
+        Open-Source                           & Non                                                                & Oui                             \\
+        \hline
+        Gratuit                               & Oui                                                                & Oui                             \\
+        \hline
+        Documentation                         & Possibilité de générer automatiquement une documentation des APIs. & Ne génère pas de documentation. \\
+        \hline
+        Exécuter plusieurs reqûetes à la fois & Oui                                                                & Non                             \\
+        \hline
+    \end{tabularx}
+    \captionsetup{justification=centering}
+    \caption{Tableau comparatif : Postman et Insomnia REST Client}
+    \label{tab:comparaison_postman_insomnia}
 \end{table}
 \subsection{Git}
 \vspace{1cm}
