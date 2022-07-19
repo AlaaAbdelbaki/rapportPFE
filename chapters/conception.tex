@@ -25,8 +25,8 @@ Le client peut contacter le chauffeur de sa voiture louée par appel téléphoni
 L'utilisateur peut rapidement commencer à utiliser l'application sans difficulté à l'aide d'interfaces graphiques claires et simples.
 \subsubsection{Performances de l'application}
 L'application ne doit pas présenter des imperfections en termes de rapidité et de fluidité en cours de son exécution.
-\subsubsection{Maintenabilité et scalabilité}
-L'application doit être simple à maintenir et facilement scalable dans le futur.
+\subsubsection{Maintenabilité et extensibilité}
+L'application doit être simple à maintenir et facilement extensible dans le futur.
 \subsubsection{Sécurité}
 Toutes les informations traitées dans l'application doivent êtres protégées, et une vérification de l'utilisateur est impérative avant chaque opération.
 \section{Diagrammes UML}
@@ -41,7 +41,7 @@ L'application SPN-Cars a un seul acteur qui est l'utilisateur, ce dernier utilis
     \label{fig:use_case_diag}
 \end{figure}
 \subsubsection{Création de compte}
-Toute utilisation des services offerts par l'application SPN-Cars nécessite la création d'un compte utilisateur. Ce compte peut être créé par deux manières : Email et mot de passe ou tout simplement par un click sur le bouton <<Sign in with Google>> ou <<Sign in with Apple>>.\\
+Toute utilisation des services offerts par l'application SPN-Cars nécessite la création d'un compte utilisateur. Ce compte peut être créé par deux manières : Email et mot de passe ou tout simplement par un clic sur le bouton <<Sign in with Google>> ou <<Sign in with Apple>>.\\
 \noindent Lors de la création du compte une vérification de l'adresse e-mail est lancée pour confirmer la création du compte ou envoyer une erreur si l'adresse est déjà utilisée.
 \begin{table}[H]
     \begin{center}
@@ -52,7 +52,7 @@ Toute utilisation des services offerts par l'application SPN-Cars nécessite la 
             \hline
             Cas d'utilisation  & Scénario optimal        & Scénario d'exception                                                          \\
             \hline
-            Création de compte & Compte créé avec succés & Compte non créé suite à une erreur : Email déjà utilisé / Serveur hors ligne. \\
+            Création de compte & Compte créé avec succès & Compte non créé suite à une erreur : Email déjà utilisé / Serveur hors ligne. \\
             \hline
         \end{tabularx}
         \captionsetup{justification=centering}
@@ -69,7 +69,7 @@ Toute utilisation des services offerts par l'application SPN-Cars nécessite la 
     \label{fig:register_use_case}
 \end{figure}
 \subsubsection{Authentification}
-Pour accéder aux différents services de l'application SPN-Cars, l'utilisateur doit s'authentifier. Cette étape consiste à vérifier les information de l'utilisateur dans la base de données. Si les informations envoyées sont correctes, un token d'authentification est retourné qui sera utilisé avec les prochaines requêtes envoyées vers le serveur. Sinon un message d'erreur est retourné à l'utilisateur.
+Pour accéder aux différents services de l'application SPN-Cars, l'utilisateur doit s'authentifier. Cette étape consiste à vérifier les information de l'utilisateur dans la base de données. Si les informations envoyées sont correctes, un jeton d'authentification est retourné qui sera utilisé avec les prochaines requêtes envoyées vers le serveur. Sinon un message d'erreur est retourné à l'utilisateur.
 \begin{table}[H]
     \begin{center}
         \begin{tabularx}{\textwidth} {
@@ -107,9 +107,9 @@ L'utilisateur peut gérer son profil : Il peut changer sa photo de profil et/ou 
             \hline
             Cas d'utilisation                     & Scénario optimal                  & Scénario d'exception                                             \\
             \hline
-            Changement de photo de profil         & Photo ajoutée avec succés         & Photo non ajoutés : Connexion au serveur échouée.                \\
+            Changement de photo de profil         & Photo ajoutée avec succès         & Photo non ajoutés : Connexion au serveur échouée.                \\
             \hline
-            Changer les informations personnelles & Informations changées avec succés & Informations non changées: Erreur de connexion vers le serveur . \\
+            Changer les informations personnelles & Informations changées avec succès & Informations non changées: Erreur de connexion vers le serveur . \\
             \hline
         \end{tabularx}
         \captionsetup{justification=centering}
@@ -136,11 +136,11 @@ Pour créer sa réservation, l'utilisateur doit choisir une voiture de la liste 
             \hline
             Cas d'utilisation  & Scénario optimal               & Scénario d'exception                                                         \\
             \hline
-            Louer une voiture  & Voiture louée avec succés.     & Voiture non louée : Voiture non disponible / Erreur de connexion.            \\
+            Louer une voiture  & Voiture louée avec succès.     & Voiture non louée : Voiture non disponible / Erreur de connexion.            \\
             \hline
-            Effectuer paiement & Paiement effectué avec succés. & Paiement non effectué : Solde insuffisant, Service de paiement indisponible. \\
+            Effectuer paiement & Paiement effectué avec succès. & Paiement non effectué : Solde insuffisant, Service de paiement indisponible. \\
             \hline
-            Signer contrat     & Contrat signé avec succés.     & Contrat non signé par l'utilisateur.                                         \\
+            Signer contrat     & Contrat signé avec succès.     & Contrat non signé par l'utilisateur.                                         \\
             \hline
         \end{tabularx}
         \captionsetup{justification=centering}
@@ -169,7 +169,7 @@ L'utilisateur peut gérer sa réservation : Il peut suivre la position de sa voi
             \hline
             Suivi véhicules     & Véhicule suivie.                 & Véhicule non suivie : Signal GPS faible / problème de connexion avec chauffeur. \\
             \hline
-            Annuler réservation & Réservation annulée avec succés. & Réservation non trouvée / Problème de connexion avec le serveur.                \\
+            Annuler réservation & Réservation annulée avec succès. & Réservation non trouvée / Problème de connexion avec le serveur.                \\
             \hline
         \end{tabularx}
         \captionsetup{justification=centering}

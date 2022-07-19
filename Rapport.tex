@@ -24,6 +24,8 @@
 \usepackage{tabularx}
 \usepackage[french]{babel}
 
+
+
 \captionsetup[table]{position=bottom}
 \addbibresource{bibliography.bib}
 
@@ -74,11 +76,13 @@
 \clearpage
 \includepdf[pages={1}]{./chapters/Rapport_plagiat_Alaa_Abdelbaki.pdf}
 \clearpage
-\input{chapters/sign.tex}
+\includepdf[pages={1}]{./chapters/sign.pdf}
+% \input{chapters/sign.tex}
 \clearpage
 \input{chapters/dedicace.tex}
+\setmainfont{Times New Roman}
 % Remerciements
-\newpage
+\clearpage
 \input{chapters/remerciements.tex}
 % Table of contents
 \newpage
