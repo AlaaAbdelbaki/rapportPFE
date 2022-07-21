@@ -82,7 +82,25 @@ La validation des champs est une étape nécessaire pour s'assurer que l'utilisa
 \section{Page d'accueil}
 Une fois l'utilisateur est a réussi à s'authentifier, la page d'accueil s'affiche. Cette page diffère d'un utilisateur à un autre selon les services demandés par l'utilisateur: Si l'utilisateur a un service actif le moment de sa connexion, la liste de voitures louées avec les détails de chaque service actif demandé, et s'il n'a pas de services actif le moment de sa connexion, deux boutons seront affichés : <<Rent a car>> pour louer une voiture sans chauffeur et <<Request a transfer>> pour demander un chauffeur avec une voiture.
 \vspace{1cm}
-
+\clearpage
+\begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/Home_1.png}
+        \vspace{1cm}
+        \captionsetup{justification=centering}
+        \caption{Page d'accueil sans réservation active.}
+        \label{fig:home_no_res}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/Home_2.png}
+        \vspace{1cm}
+        \captionsetup{justification=centering}
+        \caption{Page d'accueil avec réservation active.}
+        \label{fig:home_res}
+    \end{figure}
+\end{multicols}
 \vspace{1cm}
 \section{Gestion de profil}
 Chaque utilisateur possède un profil personnel, ce profil affichera les informations nécessaires pour faciliter la communication entre utilisateurs dans le futur (Ex: Contact entre chauffuer et client).\\
@@ -97,6 +115,14 @@ Chaque utilisateur possède un profil personnel, ce profil affichera les informa
 \end{itemize}
 De toutes ses données seuls le nom, prénom, photo de profil et numéro de téléphone seront accessibles aux chauffeurs pour assurer une communication avec les clients.\\
 \noindent L'utilisateur peut modifier tous ses informations personnelles tout simplement en modifiant les champs contenant l'information à changer, et pour la photo de profile il suffit d'appuyer sur la photo pour la remplacer par une autre, soit prendre une nouvelle photo en utilisant l'appareil photo du smartphone, ou en choisissant une photo existante depuis la galerie. Une fois l'image est choisie, l'utilisateur sera redirigé vers une page pour recadrer l'image et choisir la zone qui sera affichée dans la page de profile, une fois l'image est recadrée, elle sera compressée pour réduire sa taille et faciliter son transfert vers le serveur distant.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 0.4\textheight]{ui_screenshots/app_screenshots/profile.png}
+    \vspace{1cm}
+    \captionsetup{justification=centering}
+    \caption{Page de gestion de profil.}
+    \label{fig:prifle}
+\end{figure}
 \section{Demander un service}
 Pour louer une voiture, l'utilisateur a besoin de spécifier tout d'abord les paramètres suivants :
 \begin{itemize}
